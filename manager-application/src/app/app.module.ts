@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ActionsAndNewsComponent } from './actions-and-news/actions-and-news.component';
+import { UrgentProcurementOfMedicationComponent } from './urgent-procurement-of-medication/urgent-procurement-of-medication.component';
 
 import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from 'fusioncharts';
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'allObjections', component: AllObjectionsViewComponent},
   { path: 'createObjection', component: CreateObjectionComponent},
   { path: 'actionsAndNews', component: ActionsAndNewsComponent},
-  { path: 'surveyData', component: SurveyDataComponent}
+  { path: 'surveyData', component: SurveyDataComponent},
+  { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -53,6 +55,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     CreateObjectionComponent,
     ActionsAndNewsComponent,
     SurveyDataComponent,
+    UrgentProcurementOfMedicationComponent,
   ],
   imports: [
     BrowserModule,
