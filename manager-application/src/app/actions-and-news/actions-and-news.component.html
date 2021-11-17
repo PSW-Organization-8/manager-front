@@ -1,0 +1,14 @@
+<h1>Actions and news:</h1>
+<ul class="lista">
+    <li class="element1" *ngFor="let action of actions">
+        <div class="content-left-alight">
+            <p><b>Title: {{action.title}}</b></p>
+            <p><b>Text: {{action.text}}</b></p>
+            <p>Duration: {{action.durationStart | date:'longDate'}} - {{action.durationEnd| date:'longDate'}}</p>
+        </div>
+        <div class="button-div">
+            <button *ngIf="action.posted == false" class="button is-info w3-hover-green" (click)="approveNews(action)">Approve</button>
+            <button *ngIf="action.posted == true" class="button is-info w3-hover-green" (click)="unApproveNews(action)">Unapprove</button>
+        </div>   
+    </li>
+</ul>
