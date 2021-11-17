@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ActionsAndNewsComponent } from './actions-and-news/actions-and-news.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'allObjections', component: AllObjectionsViewComponent},
-  { path: 'createObjection', component: CreateObjectionComponent}
+  { path: 'createObjection', component: CreateObjectionComponent},
+  { path: 'actionsAndNews', component: ActionsAndNewsComponent}
 ];
 
 
@@ -40,6 +42,7 @@ const routes: Routes = [
     HomeComponent,
     AllObjectionsViewComponent,
     CreateObjectionComponent,
+    ActionsAndNewsComponent,
   ],
   imports: [
     BrowserModule,
