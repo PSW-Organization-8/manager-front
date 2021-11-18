@@ -14,6 +14,7 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component';
 
 
+
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,8 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { SurveyDataComponent } from './survey-data/survey-data.component';
 
+import { CreateMedicationConsumptionReportComponent } from './create-medication-consumption-report/create-medication-consumption-report.component';
+import { CreateMedicationSpecificationReportComponent } from './create-medication-specification-report/create-medication-specification-report.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +46,8 @@ const routes: Routes = [
   { path: 'moveEquipment', component: MoveEquipmentComponent },
   { path: 'surveyData', component: SurveyDataComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
+  { path: 'createMedicineConsumptionReport', component: CreateMedicationConsumptionReportComponent},
+  { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent}
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -62,7 +67,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MoveEquipmentComponent,
     SurveyDataComponent,
     UrgentProcurementOfMedicationComponent,
-
+    CreateMedicationConsumptionReportComponent,
+    CreateMedicationSpecificationReportComponent,
   ],
   imports: [
     BrowserModule,
