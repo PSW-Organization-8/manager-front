@@ -20,6 +20,13 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ActionsAndNewsComponent } from './actions-and-news/actions-and-news.component';
 
+import { FusionChartsModule } from 'angular-fusioncharts';
+import * as FusionCharts from 'fusioncharts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { SurveyDataComponent } from './survey-data/survey-data.component';
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -28,9 +35,11 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'allObjections', component: AllObjectionsViewComponent},
   { path: 'createObjection', component: CreateObjectionComponent},
-  { path: 'actionsAndNews', component: ActionsAndNewsComponent}
+  { path: 'actionsAndNews', component: ActionsAndNewsComponent},
+  { path: 'surveyData', component: SurveyDataComponent}
 ];
 
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -43,6 +52,7 @@ const routes: Routes = [
     AllObjectionsViewComponent,
     CreateObjectionComponent,
     ActionsAndNewsComponent,
+    SurveyDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +62,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
+    FusionChartsModule
   ],
   exports: [RouterModule],
   providers: [AllFeedbackViewService],
