@@ -8,33 +8,59 @@ import {AllSurveyDataService} from './survey-data.service'
   styleUrls: ['./survey-data.component.css']
 })
 export class SurveyDataComponent implements OnInit {
-  dataSource: Object = empty;
-  title: string = 'title';
+  dataSourceQuestionChart: Object = empty;
+  dataSourceCategoryChart: Object = empty;
   questionValues: any;
+  categoryValues: any;
 
   constructor(private _allSurveyDataService: AllSurveyDataService) {}
 
   ngOnInit(): void {   
     this.getQuestionAvgValuesFromServer()
+    this.getCategoryAvgValuesFromServer()
   }
 
   getQuestionAvgValuesFromServer(): void{
     this._allSurveyDataService.getQuestionAvgValuesFromServer().subscribe(
       successData => {  this.questionValues = successData },
       error => { },
-      () => { this.chart() }
+      () => { this.chartQuestionValues() }
       );
   }
 
-  chart(): void{
-    this.title = 'Angular  FusionCharts Sample';
+  getCategoryAvgValuesFromServer(): void{
+    this._allSurveyDataService.getCategoryAvgValuesFromServer().subscribe(
+      successData => {  this.categoryValues = successData },
+      error => { },
+      () => { this.chartCategoryValues() }
+      );
+  }
 
-    this.dataSource = {
+  chartCategoryValues(): void{
+
+    this.dataSourceCategoryChart = {
       chart: {
         caption: 'Avarage',
-        subCaption: 'In MMbbl = One Million barrels',
-        xAxisName: 'Avg values',
-        yAxisName: 'Questions',
+        xAxisName: 'Categories',
+        yAxisName: 'Avg Values',
+        numberSuffix: '/5',
+        theme: 'fusion'
+      },
+      data: [
+        { label: '1.', value: this.categoryValues[0] },
+        { label: '2.', value: this.categoryValues[1] },
+        { label: '3.', value: this.categoryValues[2] }
+      ]
+    }
+  }
+
+  chartQuestionValues(): void{
+   
+    this.dataSourceQuestionChart = {
+      chart: {
+        caption: 'Avarage',
+        xAxisName: 'Questions',
+        yAxisName: 'Avg Values',
         numberSuffix: '/5',
         theme: 'fusion'
       },
@@ -57,5 +83,4 @@ export class SurveyDataComponent implements OnInit {
       ]
     }
   }
-
 }

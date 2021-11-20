@@ -12,7 +12,11 @@ export class AllSurveyDataService {
   constructor(private http: HttpClient) { }
 
   public getQuestionAvgValuesFromServer(): Observable<any> {
-    return this.http.get<any>(this._url + 'question');
+    return this.http.get<any>(this._url + 'question/byQuestion');
+  }
+
+  public getCategoryAvgValuesFromServer(): Observable<any> {
+    return this.http.get<any>(this._url + 'question/byCategory');
   }
 
 }

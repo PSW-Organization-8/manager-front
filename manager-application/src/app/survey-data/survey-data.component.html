@@ -1,12 +1,20 @@
 <!-- statistika po pitanju i statistika po kategoriji-->
 
-<h1>
-    {{title}}
-  </h1>
+<h1> Average answers by question </h1>
   <fusioncharts
       width="600"
       height="350"
       type="Column2D"
       dataFormat="JSON"
-      [dataSource]="dataSource"
+      [dataSource]="dataSourceQuestionChart"
+      
+  ></fusioncharts>
+
+  <h1> Average answers by category </h1>
+  <fusioncharts
+      width="600"
+      height="350"
+      type="Column2D"
+      dataFormat="JSON"
+      [dataSource]="dataSourceCategoryChart"
   ></fusioncharts>
