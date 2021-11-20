@@ -71,7 +71,7 @@ export class SurveyDataComponent implements OnInit {
    
     this.dataSourceQuestionChart = {
       chart: {
-        caption: 'Avarage answar by question',
+        caption: 'Avarage answer by question',
         xAxisName: 'Questions',
         yAxisName: 'Avg Values',
         numberSuffix: '/5',
