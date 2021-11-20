@@ -40,7 +40,7 @@ export class SurveyDataComponent implements OnInit {
 
     this.dataSourceCategoryChart = {
       chart: {
-        caption: 'Avarage',
+        caption: 'Avarage answer by category',
         xAxisName: 'Categories',
         yAxisName: 'Avg Values',
         numberSuffix: '/5',
@@ -50,6 +50,19 @@ export class SurveyDataComponent implements OnInit {
         { label: '1.', value: this.categoryValues[0] },
         { label: '2.', value: this.categoryValues[1] },
         { label: '3.', value: this.categoryValues[2] }
+      ],
+      trendlines: [
+        {
+          line: [
+            {
+              startvalue: this.avg(this.categoryValues),
+              valueOnRight: 1,
+              displayValue: 'All Question Avg',
+              thickness: 3,
+              color: "#efb0a1"
+            }
+          ]
+        }
       ]
     }
   }
@@ -58,11 +71,11 @@ export class SurveyDataComponent implements OnInit {
    
     this.dataSourceQuestionChart = {
       chart: {
-        caption: 'Avarage',
+        caption: 'Avarage answar by question',
         xAxisName: 'Questions',
         yAxisName: 'Avg Values',
         numberSuffix: '/5',
-        theme: 'fusion'
+        theme: 'fusion',
       },
       data: [
         { label: '1.', value: this.questionValues[0] },
@@ -80,7 +93,28 @@ export class SurveyDataComponent implements OnInit {
         { label: '13.', value: this.questionValues[12] },
         { label: '14.', value: this.questionValues[13] },
         { label: '15.', value: this.questionValues[14] }
+      ],
+      trendlines: [
+        {
+          line: [
+            {
+              startvalue: this.avg(this.questionValues),
+              valueOnRight: 1,
+              displayValue: 'All Question Avg',
+              thickness: 3,
+              color: "#efb0a1"
+            }
+          ]
+        }
       ]
     }
+  }
+
+  avg(elmt: any): number{
+    var sum = 0;
+    for( var i = 0; i < elmt.length; i++ ){
+      sum += elmt[i]; 
+    }
+    return sum/elmt.length;
   }
 }
