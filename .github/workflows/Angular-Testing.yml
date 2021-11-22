@@ -1,0 +1,24 @@
+name: angular-testing
+on:
+  pull_request:
+    branches: [develop, main]
+jobs:
+  Run-Tests:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_DIRECTORY: manager-application
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Setup dependencies
+        working-directory: ${{env.PROJECT_DIRECTORY}}
+        run: npm ci
+
+      - name: Test
+        working-directory: ${{env.PROJECT_DIRECTORY}}
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
