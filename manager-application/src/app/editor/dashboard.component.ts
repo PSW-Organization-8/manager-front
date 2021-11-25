@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,12 +30,74 @@ export class DashboardComponent implements OnInit {
     
   }
 
+  buildings: any;
+  rooms: any;
+  floors : any;
+  equipments : any;
+
   currentUnit = 1
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+
+    this.apiService.getBuildings().subscribe((response : any) => {
+    
+      this.buildings = response;
+    })
+
+    this.apiService.getRooms().subscribe((response : any) => {
+    
+      this.rooms = response;
+    })
+
+    this.apiService.getFloors().subscribe((response : any) => {
+    
+      this.floors = response;
+    })
+
+    this.apiService.getEquipments().subscribe((response : any) => {
+    
+      this.equipments = response;
+    })
+
   }
+
+  getBuildingById(id: any) {
+
+    if(!this.buildings) {
+      return undefined;
+    }
+
+    return this.buildings.find((x : any) => x.id === id);
+  } 
+
+  getRoomById(id: any) {
+
+    if(!this.rooms) {
+      return undefined;
+    }
+
+    return this.rooms.find((x : any) => x.id === id);
+  } 
+
+  getFloorById(id: any) {
+
+    if(!this.floors) {
+      return undefined;
+    }
+
+    return this.floors.find((x : any) => x.id === id);
+  } 
+
+  getEquipmentById(id: any) {
+
+    if(!this.equipments) {
+      return undefined;
+    }
+
+    return this.equipments.find((x : any) => x.id === id);
+  } 
 
   changeUnit(unit: any) {
     this.currentUnit = unit

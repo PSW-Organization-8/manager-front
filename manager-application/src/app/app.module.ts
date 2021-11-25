@@ -10,6 +10,8 @@ import { AllFeedbackViewService } from './feedbacks/all-feedback-view/all-feedba
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
 import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
 import { CreateObjectionComponent } from './create-objection/create-objection.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component';
 
 
 import { AppComponent } from './app.component';
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: 'allObjections', component: AllObjectionsViewComponent},
   { path: 'createObjection', component: CreateObjectionComponent},
   { path: 'actionsAndNews', component: ActionsAndNewsComponent},
+  { path: 'equipment', component: EquipmentComponent },
+  { path: 'moveEquipment', component: MoveEquipmentComponent },
   { path: 'surveyData', component: SurveyDataComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
 ];
@@ -54,8 +58,11 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     AllObjectionsViewComponent,
     CreateObjectionComponent,
     ActionsAndNewsComponent,
+    EquipmentComponent,
+    MoveEquipmentComponent,
     SurveyDataComponent,
     UrgentProcurementOfMedicationComponent,
+
   ],
   imports: [
     BrowserModule,

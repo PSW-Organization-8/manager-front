@@ -76,9 +76,10 @@
     .mainHospitalBuilding {
         border: 1px solid #000000;
         transition: .15s;
+        height: 180px;
         position:absolute; 
         top:0; left:0; right:0; bottom:0; 
-        height: 140px;
+        
 
         background: white;
         &:hover {
@@ -131,9 +132,8 @@
         background: #5688C7;
         border: 1px solid #000000;
         transition: .15s;
-        height: 150px;
-        position:absolute; 
-        top:0; left:0; right:0; bottom:0; 
+        height: 170px;
+        position: absolute;
 
         
         background: linear-gradient(
@@ -143,7 +143,7 @@
             rgba(0, 0, 0, 0.0)
           ),
           url("/assets/images/ambulance-car.jpg");
-        background-size: cover;
+        background-size: 80%;
 
 
         &:hover {
@@ -156,6 +156,7 @@
         background: #54b4f0;
         border: 1px solid #000000;
         transition: .15s;
+        
 
         background: linear-gradient(
             0deg,
@@ -187,7 +188,7 @@
         transition: .15s;
         height: 20px;
         position:absolute; 
-        top: -20px;; left:0; right:0; bottom:0;; 
+        top: -30px;; left:0; right:0; bottom: 10px;; 
 
 
         &:hover {
@@ -198,7 +199,7 @@
 
     .floorButton {
         transition: .15s;
-        height: 20px;
+        height: 70px;
         position:absolute; 
         top: -10px;; left:0; right:0; bottom:0;; 
         border: 1px solid #000000;
@@ -214,6 +215,9 @@
     .laboratory {
         border: 1px solid #000000;
         transition: .15s;
+        height: 170px;
+        position:absolute; 
+        top:0; left:0; right:0; bottom:30px; 
 
         background: linear-gradient(
             0deg,
@@ -232,11 +236,20 @@
         }
     }
 
+    .side-container{
+        width: 40%;
+        min-height: 100vh;
+        line-height: 35px;
+        font-size: 25px;
+        text-align: center;
+        margin-left: 10%;
+        }
+
     .room {
         background: #13293D;
         border: 1px solid #13293D;
         transition: .15s;
-        height: 90px;
+        height: 130px;
         position:absolute; 
         top:0; left:0; right:0; bottom:0; 
         
@@ -264,7 +277,7 @@
         background-color: #5688C7;
         border: 1px solid #000000;
         transition: .15s;
-        height: 70px;
+        height: 120px;
         position:absolute; 
         top:0; left:0; right:0; bottom:0; 
         
@@ -274,7 +287,7 @@
         background-color: #1755a7;
         border: 1px solid #000000;
         transition: .15s;
-        height: 90px;
+        height: 130px;
         position:absolute; 
         top:0; left:0; right:0; bottom:0; 
     }
@@ -284,7 +297,7 @@
         border: 1px solid #000000;
         transition: .15s;
         width: 30px;
-        height: 80px;
+        height: 120px;
         margin: 10px 0;
     }
 
@@ -304,6 +317,7 @@
         border: 1px solid #000000;
         transition: .15s;
         width: 7%;
+        height: 120px;
     }
 
     .operationRoom {
@@ -311,7 +325,7 @@
         border: 1px solid #000000;
         transition: .15s;
         width: 30%;
-        height: 90px;
+        height: 120px;
     }
 
     .hospitalRoom {
