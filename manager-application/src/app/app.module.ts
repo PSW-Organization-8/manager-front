@@ -10,6 +10,8 @@ import { AllFeedbackViewService } from './feedbacks/all-feedback-view/all-feedba
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
 import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
 import { CreateObjectionComponent } from './create-objection/create-objection.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component';
 
 
 import { AppComponent } from './app.component';
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'allObjections', component: AllObjectionsViewComponent},
   { path: 'createObjection', component: CreateObjectionComponent},
-  { path: 'actionsAndNews', component: ActionsAndNewsComponent}
+  { path: 'actionsAndNews', component: ActionsAndNewsComponent},
+  { path: 'equipment', component: EquipmentComponent },
+  { path: 'moveEquipment', component: MoveEquipmentComponent },
 ];
 
 
@@ -43,6 +47,8 @@ const routes: Routes = [
     AllObjectionsViewComponent,
     CreateObjectionComponent,
     ActionsAndNewsComponent,
+    EquipmentComponent,
+    MoveEquipmentComponent,
   ],
   imports: [
     BrowserModule,
