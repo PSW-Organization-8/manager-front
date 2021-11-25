@@ -19,4 +19,11 @@ export class AllSurveyDataService {
     return this.http.get<any>(this._url + 'question/byCategory');
   }
 
+  public getQuesitonDataFromServer(): Observable<any> {
+    return this.http.get<any>(this._url + 'question/questionData');
+  }
+
+  public getCategoryDataFromServer(): Observable<any> {
+    return this.http.get<any>(this._url + 'question/categoryData');
+  }
 }
