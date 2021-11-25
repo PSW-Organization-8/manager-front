@@ -1,0 +1,23 @@
+<!-- statistika po pitanju i statistika po kategoriji-->
+<div class="columns m-5">
+    <div class="column">
+        <fusioncharts
+            width="600"
+            height="350"
+            type="Column3D"
+            dataFormat="JSON"
+            [dataSource]="dataSourceQuestionChart"
+            
+        ></fusioncharts>
+    </div>
+
+    <div class="column">
+        <fusioncharts 
+            width="600"
+            height="350"
+            type="Column3D"
+            dataFormat="JSON"
+            [dataSource]="dataSourceCategoryChart"
+        ></fusioncharts>
+    </div>
+</div>
