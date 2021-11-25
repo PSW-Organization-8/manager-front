@@ -10,7 +10,7 @@
             <tr>
                 <td>{{feedback.patientId}}</td>
                 <td>{{feedback.content}}</td>
-                <td>{{feedback.date}}</td>
+                <td>{{feedback.date.slice(0,10)}}</td>
                 <td *ngIf='!feedback.isPublishable' class="w3-small">
                     Not publishable
                 </td>
