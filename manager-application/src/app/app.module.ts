@@ -32,6 +32,8 @@ import { SurveyDataComponent } from './survey-data/survey-data.component';
 
 import { CreateMedicationConsumptionReportComponent } from './create-medication-consumption-report/create-medication-consumption-report.component';
 import { CreateMedicationSpecificationReportComponent } from './create-medication-specification-report/create-medication-specification-report.component';
+import { AllPharmaciesViewComponent } from './all-pharmacies-view/all-pharmacies-view.component';
+import { PharmacyProfileComponent } from './pharmacy-profile/pharmacy-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,7 +49,9 @@ const routes: Routes = [
   { path: 'surveyData', component: SurveyDataComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
   { path: 'createMedicineConsumptionReport', component: CreateMedicationConsumptionReportComponent},
-  { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent}
+  { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent},
+  { path: 'registratedPharmacies', component: AllPharmaciesViewComponent},
+  { path: 'pharmacyProfile', component: PharmacyProfileComponent}
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -69,6 +73,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     UrgentProcurementOfMedicationComponent,
     CreateMedicationConsumptionReportComponent,
     CreateMedicationSpecificationReportComponent,
+    AllPharmaciesViewComponent,
+    PharmacyProfileComponent,
   ],
   imports: [
     BrowserModule,

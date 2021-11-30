@@ -1,0 +1,53 @@
+<section class="hero is-medium">
+    <div class="container has-text-centered">
+        <button class="button is-link" onclick="window.location.href='/registratedPharmacies'">Return</button>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+                <h3 class="title has-text-grey">Pharmacy: {{selectedPharmacy.name}}</h3>
+                <div class="box">
+                    <form>
+                        <div class="field">
+                            <label class="label">URL</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="URL of pharmacy" name="url"
+                                    [(ngModel)]="selectedPharmacy.url">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Apy key</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Apy key of pharmacy" name="apiKey"
+                                    [(ngModel)]="selectedPharmacy.apiKey">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Port</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Port of pharmacy" name="port"
+                                    [(ngModel)]="selectedPharmacy.port">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="field">
+                            <label class="label">Notes</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Notes for this pharmacy" name="notes"
+                                    [(ngModel)]="selectedPharmacy.notes"></textarea>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <button class="button is-block is-info is-large is-fullwidth" (click)="updatePharmacy()">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
