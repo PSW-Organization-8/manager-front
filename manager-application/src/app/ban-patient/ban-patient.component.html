@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<div class="container">
+    <table class="w3-table-all w3-card-4">
+        <thead>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Broj otkazanih termina</th>
+        </thead>
+        <tbody *ngFor='let patient of patients'>
+            <tr>
+                <td>{{patient.name}}</td>
+                <td>{{patient.lastName}}</td>
+                <td>{{getCanceled(patient.id)}}</td>
+                <!--<td *ngIf='!patient.isBanned'>
+                    <button class="w3-hover-white w3-button w3-round w3-black w3-small" >Approve</button>
+                </td>
+                <td *ngIf='patient.isBanned'>
+                    <button class="w3-hover-white w3-black w3-round w3-button w3-small" >Remove</button>
+                </td>-->
+            </tr>
+        </tbody>
+    </table>
+</div>
