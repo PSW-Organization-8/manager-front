@@ -7,17 +7,17 @@
             <th>Prezime</th>
             <th>Broj otkazanih termina</th>
         </thead>
-        <tbody *ngFor='let patient of patients'>
-            <tr>
-                <td>{{patient.name}}</td>
-                <td>{{patient.lastName}}</td>
-                <td>{{getCanceled(patient.id)}}</td>
-                <!--<td *ngIf='!patient.isBanned'>
-                    <button class="w3-hover-white w3-button w3-round w3-black w3-small" >Approve</button>
+        <tbody *ngFor='let dto of dtos'>
+            <tr [style.background-color] = "color(dto.numOfAppointment)">
+                <td>{{dto.patient.name}}</td>
+                <td>{{dto.patient.lastName}}</td>
+                <td>{{dto.numOfAppointment}}</td>
+                <td *ngIf='!dto.patient.isBanned'>
+                    <button class="w3-hover-white w3-button w3-round w3-black w3-small" (click)="banPatient(dto.patient.id)" >Approve</button>
                 </td>
-                <td *ngIf='patient.isBanned'>
-                    <button class="w3-hover-white w3-black w3-round w3-button w3-small" >Remove</button>
-                </td>-->
+                <td *ngIf='dto.patient.isBanned'>
+                    <button class="w3-hover-white w3-black w3-round w3-button w3-small" (click)="unbanPatient(dto.patient.id)">Remove</button>
+                </td>
             </tr>
         </tbody>
     </table>
