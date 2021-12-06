@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ApiService } from '../api.service';
 
 @Component({
@@ -36,6 +37,8 @@ export class DashboardComponent implements OnInit {
   equipments : any;
 
   currentUnit = 1
+  selectedItem = 0;
+  formState = 0;
 
   constructor(private apiService: ApiService) { }
 
@@ -62,6 +65,13 @@ export class DashboardComponent implements OnInit {
     })
 
   }
+
+
+  itemClick(item:any) {
+    console.log(item)
+    this.selectedItem = item;
+  }
+
 
   getBuildingById(id: any) {
 
@@ -105,7 +115,10 @@ export class DashboardComponent implements OnInit {
     }
     
     return this.equipments.filter((x : any) => x.room && x.room.id === id);
+
   }
+
+  
 
   changeUnit(unit: any) {
     this.currentUnit = unit
@@ -113,6 +126,20 @@ export class DashboardComponent implements OnInit {
 
   isUnitSelected(unit: any) {
     return this.currentUnit == unit
+  }
+
+  nextFormState() {
+    return this.formState == this.formState+1;
+  }
+
+  backFormState()
+  {
+    return this.formState == this.formState-1;
+  }
+
+  setFormState()
+  {
+    return this.formState=1;
   }
 
 }

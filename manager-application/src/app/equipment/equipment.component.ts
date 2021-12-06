@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { ApiService } from '../api.service';
+
 
 
 @Component({
@@ -10,6 +12,7 @@ import { ApiService } from '../api.service';
 export class EquipmentComponent  {
   title = 'manager-application';
   
+
   equipments : any;
   searchTerm : any;
 
@@ -39,6 +42,7 @@ getEquipmentById(id: any) {
 
 
 }
+
 
 
 
