@@ -4,34 +4,23 @@
 
 <h1 style="font-size:200%;"><b>Move Equipment</b></h1>
 
+
+
   <label  style="font-size: 130%;" for="equipments"><b>Equipment:</b></label>
-  <select name="equipmemts" id="equipments">
-    <option value="needles">Needles</option>
-    <option value="scalpels">Scalpels</option>
-    <option value="medicalGaze">Medical gazes</option>
-    <option value="x-ray">X-Rays</option>
-  </select>
+  <input [(ngModel)] = "equipment.name" type="text" ><br><br>
   <br><br>
 
   <label style="font-size:130%;"for="startingRooms"> <b>Starting room:</b></label>
-  <select name="startingRooms" id="startingRooms">
-    <option value="office">Ambulance-Office 1</option>
-    <option value="office">Main Hospital Building-Office 2</option>
-    <option value="radiology">Laboratory-Radiology room 1</option>
-    <option value="operationRoom">Ambulance-Operating room 1</option>
-  </select>
+  <input type="text" [(ngModel)] = "equipment.room.name" ><br><br>
   <br><br>
 
   <label style="font-size:130%;" for="amountEquipment"> <b>Amount of equipment:</b></label>
-  <input type="number" id="amountEquipment" name="amountEquipment" min="1" max="200">
+  <input type="number" [(ngModel)] = "equipment.amount"  min="1" >
   <br><br>
 
   <label style="font-size:130%;" for="destinationRooms"><b>Destination room:</b> </label>
-  <select name="destinationRooms" id="destinationRooms">
-    <option value="office">Ambulance-Office 1</option>
-    <option value="office">Main Hospital Building-Office 2</option>
-    <option value="radiology">Laboratory-Radiology room 1</option>
-    <option value="operationRoom">Ambulance-Operating room 1</option>
+  <select  name="destinationRooms" id="destinationRooms">
+    <option *ngFor="let room of rooms"  [value]="room.name">{{room.name}}</option>
   </select>
   <br><br>
 
@@ -48,17 +37,9 @@
   </select>
   <br><br>
 
-  <label style="font-size:130%;" for="freeTerms"> <b>Free terms for relocation:</b></label>
-  <select name="freeTerms" id="freeTerms">
-    <option value="term1">25.12.2021.(13:00-14:00)</option>
-    <option value="term2">26.12.2021.(15:00-15:30)</option>
-    <option value="term3">27.12.2021. - 28.12.2021.</option>
-    <option value="term4">28.12.2021.(12:00-12:10)</option>
-  </select>
-  <br><br>
+ 
 
   <input type="submit" value="Submit">
-
 
 
 </body>

@@ -99,6 +99,14 @@ export class DashboardComponent implements OnInit {
     return this.equipments.find((x : any) => x.id === id);
   } 
 
+  getEquipmentsForRoom(id: any) {
+    if(!this.equipments) {
+      return [];
+    }
+    
+    return this.equipments.filter((x : any) => x.room && x.room.id === id);
+  }
+
   changeUnit(unit: any) {
     this.currentUnit = unit
   }
