@@ -1,14 +1,22 @@
-<div>
-    <h1>Pharmacy registration</h1>
-    <form (ngSubmit)="onSubmit()" ngNativeValidate>
-        <label>Name</label>
-        <input type="text" name="Name" [(ngModel)]="model.Name" required>
-        <label>API Key</label>
-        <input type="text" name="ApiKey" [(ngModel)]="model.ApiKey" required>
-        <label>Url</label>
-        <input type="text" name="Url" [(ngModel)]="model.Url" required>
-        <label>Port</label>
-        <input type="number" name="PortNum" [(ngModel)]="model.PortNum">
-        <input type="submit">
-    </form>
-</div>
+<section class="hero is-medium">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+
+            <h1 class="title">Pharmacy registration</h1>
+        </div>
+        <form (ngSubmit)="onSubmit()" ngNativeValidate>
+            <label>Name</label>
+            <input type="text" name="Name" [(ngModel)]="model.Name" required>
+            <label>API Key</label>
+            <input type="text" name="ApiKey" [(ngModel)]="model.ApiKey" required>
+            <label>Url</label>
+            <input type="text" name="Url" [(ngModel)]="model.Url" required>
+            <label>Port</label>
+            <input type="number" name="PortNum" [(ngModel)]="model.PortNum">
+            <label>
+                <input [(ngModel)]="model.ComunicateWithGrpc" type="checkbox" name="ComunicateWithGrpc">Grpc communication
+            </label>
+            <input type="submit">
+        </form>
+    </div>
+</section>
