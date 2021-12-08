@@ -39,32 +39,32 @@
                           <p>Business hours: 7:00 - 16:00</p>
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(28)'>{{equipment.name}} - {{equipment.amount}}</p>
-                          <p><button type="button" onclick="setFormState(1)">Move Equipment</button></p>
-                          <p>Equipment: <select name="equipments" id="equipments">
-                            <option value="gloves">Gloves</option>
+                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1" >Equipment: <select>
+                            <option value="{{equipments[1].name}}">{{equipments[1].name}}</option>
                           </select></p>
-                          <p>Starting room: <input type="text"  ></p>
-                          <p>Amount: <input type="number"  min="1" ></p>
-                          <p>Destination room:   <select name="destinationRoom" id="destinationRoom">
-                            <option value="office3">Office 3</option>
+                          <p *ngIf="formState==2" >Starting room: <input type="text" value="{{equipments[1].room.name}}" name="startRoom" id="startRoom"  ></p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[1].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4" >Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
                             
                           </select></p>
-                          <p>Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
-                          <p>Duration:  <select name="durationRelocation" id="durationRelocation">
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
                             <option value="10min">10 minutes</option>
                             <option value="30min">30 minutes</option>
                             <option value="1hour">1 hour</option>
                             <option value="1day">1day</option>
                           </select></p>
-                          <p>Free terms: <select name="freeTerms" id="freeTerms">
+                        <!--  <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
                             <option value="term1">25.12.2021.(13:00-14:00)</option>
                             <option value="term2">26.12.2021.(15:00-15:30)</option>
                             <option value="term3">27.12.2021. - 28.12.2021.</option>
                             <option value="term4">28.12.2021.(12:00-12:10)</option>
-                          </select></p>
-                          <p><button type="button">Submit</button></p>
-                          <p><button type="button">Back</button></p>
-                          <p><button type="button">Next</button></p>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button  type="button">Submit</button></p>
+                          <p><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                     </div>
                   </div>
                   <div class="item office" (click)="itemClick(29)">
@@ -75,11 +75,36 @@
                           <p>Doctor: Pera Peric</p>
                           <p>Business hours: 7:00 - 16:00</p>
                           <p><b>Equipment:</b></p> 
-                          <p *ngFor='let equipment of getEquipmentsForRoom(28)'>{{equipment.name}} - {{equipment.amount}}</p>
-                          <p><button type="button">Move Equipment</button></p>
+                          <p *ngFor='let equipment of getEquipmentsForRoom(29)'>{{equipment.name}} - {{equipment.amount}}</p>
+                           <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                            <option value="{{equipments[11].name}}">{{equipments[11].name}}</option>
+                          </select></p>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[11].room.name}}" name="startRoom" id="startRoom"  > </p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[11].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                            
+                          </select></p>
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                            <option value="term1">25.12.2021.(13:00-14:00)</option>
+                            <option value="term2">26.12.2021.(15:00-15:30)</option>
+                            <option value="term3">27.12.2021. - 28.12.2021.</option>
+                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          <p ><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                     </div>
                   </div>
-                  <div class="item reception" onclick="itemClick(32)">
+                  <div class="item reception" (click)="itemClick(32)">
                       <h2 style="color:white"  *ngIf="getRoomById(32)">{{getRoomById(32).name}}</h2>
                       <div class="description" *ngIf="selectedItem==32">
                           <p><b>Reception room</b></p> 
@@ -88,7 +113,32 @@
                           <p>Business hours: 7:00 - 19:00</p>
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(32)'>{{equipment.name}} - {{equipment.amount}}</p>
-                          <p><button type="button">Move Equipment</button></p>
+                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                            <option value="{{equipments[24].name}}">{{equipments[24].name}}</option>
+                          </select></p>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[24].room.name}}" name="startRoom" id="startRoom"  > </p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[24].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                            
+                          </select></p>
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                            <option value="term1">25.12.2021.(13:00-14:00)</option>
+                            <option value="term2">26.12.2021.(15:00-15:30)</option>
+                            <option value="term3">27.12.2021. - 28.12.2021.</option>
+                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          <p ><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                       </div>
                   </div>
               </div>
@@ -98,7 +148,7 @@
                   </div>
               </div>
               <div class="row">
-                  <div class="item office" onclick="itemClick(30)">
+                  <div class="item office" (click)="itemClick(30)">
                       <h2 style="color:white"  *ngIf="getRoomById(30)">{{getRoomById(30).name}}</h2>
                       <div class="description" *ngIf="selectedItem==30">
                           <p><b>Office 3</b></p> 
@@ -107,11 +157,36 @@
                           <p>Business hours: 7:00 - 16:00</p>
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(30)'>{{equipment.name}} - {{equipment.amount}}</p>
-                          <p><button type="button">Move Equipment</button></p>
+                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                            <option value="{{equipments[26].name}}">{{equipments[26].name}}</option>
+                          </select></p>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[26].room.name}}" name="startRoom" id="startRoom"  ></p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[26].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                            
+                          </select></p>
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                            <option value="term1">25.12.2021.(13:00-14:00)</option>
+                            <option value="term2">26.12.2021.(15:00-15:30)</option>
+                            <option value="term3">27.12.2021. - 28.12.2021.</option>
+                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          <p ><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                       </div>
                       
                   </div>
-                  <div class="item office" onclick="itemClick(31)">
+                  <div class="item office" (click)="itemClick(31)">
                       <h2 style="color:white"  *ngIf="getRoomById(31)">{{getRoomById(31).name}}</h2>
                       <div class="description" *ngIf="selectedItem==31">
                         <p><b>Office 4</b></p> 
@@ -120,7 +195,33 @@
                         <p>Business hours: 7:00 - 16:00</p>
                         <p><b>Equipment:</b></p> 
                         <p *ngFor='let equipment of getEquipmentsForRoom(31)'>{{equipment.name}} - {{equipment.amount}}</p>
-                        <p><button type="button">Move Equipment</button></p>
+                        <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                        <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                          <option value="{{equipments[9].name}}">{{equipments[9].name}}</option>
+                          <option value="{{equipments[10].name}}">{{equipments[10].name}}</option>
+                        </select></p>
+                        <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[9].room.name}}" name="startRoom" id="startRoom"  ></p>
+                        <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[9].amount}}" name="amount" id="amount" min="1" ></p>
+                        <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                          <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                          
+                        </select></p>
+                        <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                        <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                          <option value="10min">10 minutes</option>
+                          <option value="30min">30 minutes</option>
+                          <option value="1hour">1 hour</option>
+                          <option value="1day">1day</option>
+                        </select></p>
+                       <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                          <option value="term1">25.12.2021.(13:00-14:00)</option>
+                          <option value="term2">26.12.2021.(15:00-15:30)</option>
+                          <option value="term3">27.12.2021. - 28.12.2021.</option>
+                          <option value="term4">28.12.2021.(12:00-12:10)</option>
+                        </select></p> -->
+                        <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                        <p ><button type="button" (click)="backFormState()">Back</button></p>
+                        <p><button type="button" (click)="nextFormState()">Next</button></p>
                     </div>
                   </div>
                   <div class="item elevator">
@@ -153,7 +254,7 @@
   
         <div *ngIf="isUnitSelected(units.mainHospitalBuildingFloor2)" class="unit">
            <div class="row">
-              <div class="item office" onclick="itemClick(37)">
+              <div class="item office" (click)="itemClick(37)">
                   <h2 style="color:white"  *ngIf="getRoomById(37)">{{getRoomById(37).name}}</h2>
                   <div class="description" *ngIf="selectedItem==37">
                       <p><b>Office 1</b></p> 
@@ -162,9 +263,35 @@
                       <p>Business hours: 14:00 - 19:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(37)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[27].name}}">{{equipments[27].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[27].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[27].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item office" onclick="itemClick(38)">
+              <div class="item office" (click)="itemClick(38)">
                   <h2 style="color:white"  *ngIf="getRoomById(38)">{{getRoomById(38).name}}</h2>
                   <div class="description" *ngIf="selectedItem==38">
                       <p><b>Office 2</b></p> 
@@ -173,9 +300,35 @@
                       <p>Business hours: 14:00 - 19:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(38)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[28].name}}">{{equipments[28].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[28].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[28].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item office" onclick="itemClick(41)">
+              <div class="item office" (click)="itemClick(41)">
                   <h2 style="color:white"  *ngIf="getRoomById(41)">{{getRoomById(41).name}}</h2>
                   <div class="description" *ngIf="selectedItem==41">
                       <p><b>Office 5</b></p> 
@@ -184,6 +337,32 @@
                       <p>Business hours: 14:00 - 19:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(41)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[29].name}}">{{equipments[29].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[29].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[29].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
            </div>
@@ -191,7 +370,7 @@
               <div class="item waitingRoom">
                   <h2 style="color:white"   *ngIf="getRoomById(43)">{{getRoomById(43).name}}</h2>
               </div>
-              <div class="item office" onclick="itemClick(42)">
+              <div class="item office" (click)="itemClick(42)">
                   <h2 style="color:white"  *ngIf="getRoomById(42)">{{getRoomById(42).name}}</h2>
                   <div class="description" *ngIf="selectedItem==42">
                       <p><b>Office 6</b></p>
@@ -200,9 +379,36 @@
                       <p>Business hours: 14:00 - 19:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(42)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[7].name}}">{{equipments[7].name}}</option>
+                        <option value="{{equipments[30].name}}">{{equipments[30].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[7].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[7].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item office" onclick="itemClick(40)">
+              <div class="item office" (click)="itemClick(40)">
                   <h2 style="color:white"  *ngIf="getRoomById(40)">{{getRoomById(40).name}}</h2>
                   <div class="description" *ngIf="selectedItem==40">
                       <p><b>Office 4</b></p> 
@@ -211,19 +417,74 @@
                       <p>Business hours: 14:00 - 19:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(40)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[31].name}}">{{equipments[31].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[31].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[31].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
           </div>
           <div class="row">
-              <div class="item office" onclick="itemClick(39)">
+              <div class="item office" (click)="itemClick(39)">
                   <h2 style="color:white"  *ngIf="getRoomById(39)">{{getRoomById(39).name}}</h2>
-                  <div class="description"> *ngIf="selectedItem==39"
+                  <div class="description" *ngIf="selectedItem==39"> 
                       <p><b>Office 3</b></p> 
                       <p>Description: Office for patients examinations</p>
                       <p>Doctor: Jelena Jovanovic</p>
                       <p>Business hours: 14:00 - 19:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(39)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[25].name}}">{{equipments[25].name}}</option>
+                        <option value="{{equipments[17].name}}">{{equipments[17].name}}</option>
+                        <option value="{{equipments[15].name}}">{{equipments[15].name}}</option>
+                        <option value="{{equipments[12].name}}">{{equipments[12].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[25].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[25].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
               <div class="item elevator">
@@ -253,7 +514,7 @@
   
        <div *ngIf="isUnitSelected(units.laboratory)" class="unit">
           <div class="row">
-              <div class="item room" onclick="itemClick(1)">
+              <div class="item room" (click)="itemClick(1)">
                   <h2 style="color:white" *ngIf="getRoomById(1)">{{getRoomById(1).name}}</h2>
                       <div class="description" *ngIf="selectedItem==1">
                           <p><b>Laboratory 1</b></p> 
@@ -262,9 +523,35 @@
                           <p>Business hours: 7:00 - 15:00</p>
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(1)'>{{equipment.name}} - {{equipment.amount}}</p>
+                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                            <option value="{{equipments[18].name}}">{{equipments[18].name}}</option>
+                          </select></p>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[18].room.name}}" name="startRoom" id="startRoom"  > </p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[18].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                            
+                          </select></p>
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                            <option value="term1">25.12.2021.(13:00-14:00)</option>
+                            <option value="term2">26.12.2021.(15:00-15:30)</option>
+                            <option value="term3">27.12.2021. - 28.12.2021.</option>
+                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          <p ><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                       </div>
               </div>
-              <div class="item room" onclick="itemClick(2)">
+              <div class="item room" (click)="itemClick(2)">
                   <h2 style="color:white" *ngIf="getRoomById(2)">{{getRoomById(2).name}}</h2>
                       <div class="description" *ngIf="selectedItem==2">
                           <p><b>Laboratory 2</b></p> 
@@ -273,9 +560,35 @@
                           <p>Business hours: 7:00 - 15:00</p>
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(2)'>{{equipment.name}} - {{equipment.amount}}</p>
+                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                            <option value="{{equipments[19].name}}">{{equipments[19].name}}</option>
+                          </select></p>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[19].room.name}}" name="startRoom" id="startRoom"  > </p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[19].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                            
+                          </select></p>
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                            <option value="term1">25.12.2021.(13:00-14:00)</option>
+                            <option value="term2">26.12.2021.(15:00-15:30)</option>
+                            <option value="term3">27.12.2021. - 28.12.2021.</option>
+                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          <p ><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                       </div>
               </div>
-              <div class="item room" onclick="itemClick(3)">
+              <div class="item room" (click)="itemClick(3)">
                   <h2 style="color:white" *ngIf="getRoomById(3)">{{getRoomById(3).name}}</h2>
                       <div class="description" *ngIf="selectedItem==3">
                           <p><b>Laboratory 3</b></p> 
@@ -284,6 +597,32 @@
                           <p>Business hours: 7:00 - 15:00</p>
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(3)'>{{equipment.name}} - {{equipment.amount}}</p>
+                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                            <option value="{{equipments[20].name}}">{{equipments[20].name}}</option>
+                          </select></p>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[20].room.name}}" name="startRoom" id="startRoom"  > </p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[20].amount}}" name="amount" id="amount" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                            
+                          </select></p>
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                            <option value="term1">25.12.2021.(13:00-14:00)</option>
+                            <option value="term2">26.12.2021.(15:00-15:30)</option>
+                            <option value="term3">27.12.2021. - 28.12.2021.</option>
+                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                          </select></p> -->
+                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          <p ><button type="button" (click)="backFormState()">Back</button></p>
+                          <p><button type="button" (click)="nextFormState()">Next</button></p>
                       </div>
               </div>
           </div>
@@ -291,7 +630,7 @@
               <div class="item waitingRoom">
                   <h2 style="color:white" *ngIf="getRoomById(4)">{{getRoomById(4).name}}</h2>
               </div>
-              <div class="item reception" onclick="itemClick(5)">
+              <div class="item reception" (click)="itemClick(5)">
                   <h2 style="color:white" *ngIf="getRoomById(5)">{{getRoomById(5).name}}</h2>
                   <div class="description" *ngIf="selectedItem==5">
                       <p><b>Reception room</b></p>
@@ -299,12 +638,38 @@
                       <p>Main nurse: Masa Masic</p>
                       <p>Business hours: 7:00 - 15:00</p>
                       <p><b>Equipment:</b></p> 
-                      <p *ngFor='let equipment of getEquipmentsForRoom(4)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p *ngFor='let equipment of getEquipmentsForRoom(5)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[23].name}}">{{equipments[23].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[23].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[23].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
           </div>
           <div class="row">
-              <div class="item radiology" onclick="itemClick(6)">
+              <div class="item radiology" (click)="itemClick(6)">
                   <h2 style="color:white" *ngIf="getRoomById(6)">{{getRoomById(6).name}}</h2>
                   <div class="description" *ngIf="selectedItem==6">
                       <p><b>Radiology room 1</b></p>
@@ -313,9 +678,35 @@
                       <p>Business hours: 7:00 - 15:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(6)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[21].name}}">{{equipments[21].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[21].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[21].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item radiology" onclick="itemClick(7)">
+              <div class="item radiology" (click)="itemClick(7)">
                   <h2 style="color:white" *ngIf="getRoomById(7)">{{getRoomById(7).name}}</h2>
                   <div class="description" *ngIf="selectedItem==7">
                       <p><b>Radiology room 2</b></p>
@@ -324,6 +715,32 @@
                       <p>Business hours: 7:00 - 15:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(7)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[22].name}}">{{equipments[22].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[22].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[22].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
               <div class="item toilet">
@@ -346,7 +763,7 @@
   
         <div *ngIf="isUnitSelected(units.ambulanceFloor1)" class="unit">
           <div class="row">
-              <div class="item operationRoom" onclick="itemClick(10)">
+              <div class="item operationRoom" (click)="itemClick(10)">
                   <h2 style="color:white" *ngIf="getRoomById(10)">{{getRoomById(10).name}}</h2>
                   <div class="description" *ngIf="selectedItem==10">
                       <p><b>Operating room 2</b></p>
@@ -355,9 +772,35 @@
                       <p>Business hours: 00:00 - 24:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(10)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[13].name}}">{{equipments[13].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[13].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[13].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item office" onclick="itemClick(11)">
+              <div class="item office" (click)="itemClick(11)">
                   <h2 style="color:white" *ngIf="getRoomById(11)">{{getRoomById(11).name}}</h2>
                   <div class="description" *ngIf="selectedItem==11">
                       <p><b>Office 1</b></p>
@@ -366,9 +809,35 @@
                       <p>Business hours: 00:00 - 24:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(11)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[0].name}}">{{equipments[0].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[0].room.name}}" name="startRoom" id="startRoom"  > </p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[0].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item office" onclick="itemClick(12)">
+              <div class="item office" (click)="itemClick(12)">
                   <h2 style="color:white" *ngIf="getRoomById(12)">{{getRoomById(12).name}}</h2>
                   <div class="description" *ngIf="selectedItem==12">
                       <p><b>Office 2</b></p>
@@ -377,9 +846,35 @@
                       <p>Business hours: 00:00 - 24:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(12)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[14].name}}">{{equipments[14].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[14].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[14].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
-              <div class="item office" onclick="itemClick(13)">
+              <div class="item office" (click)="itemClick(13)">
                   <h2 style="color:white" *ngIf="getRoomById(13)">{{getRoomById(13).name}}</h2>
                   <div class="description" *ngIf="selectedItem==13">
                       <p><b>Office 3</b></p>
@@ -388,6 +883,32 @@
                       <p>Business hours: 00:00 - 24:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(13)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[16].name}}">{{equipments[16].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[16].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[16].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div> 
           </div>
@@ -397,7 +918,7 @@
               </div>
           </div>
           <div class="row">
-              <div class="item operationRoom" onclick="itemClick(15)">
+              <div class="item operationRoom" (click)="itemClick(15)">
                   <h2 style="color:white" *ngIf="getRoomById(15)">{{getRoomById(15).name}}</h2>
                   <div class="description" *ngIf="selectedItem==15">
                       <p><b>Operating room 1</b></p>
@@ -406,6 +927,32 @@
                       <p>Business hours: 00:00 - 24:00</p>
                       <p><b>Equipment:</b></p> 
                       <p *ngFor='let equipment of getEquipmentsForRoom(15)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                      <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                        <option value="{{equipments[3].name}}">{{equipments[3].name}}</option>
+                      </select></p>
+                      <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[3].room.name}}" name="startRoom" id="startRoom"  ></p>
+                      <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[3].amount}}" name="amount" id="amount" min="1" ></p>
+                      <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                        <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        
+                      </select></p>
+                      <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                      <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <option value="10min">10 minutes</option>
+                        <option value="30min">30 minutes</option>
+                        <option value="1hour">1 hour</option>
+                        <option value="1day">1day</option>
+                      </select></p>
+                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">25.12.2021.(13:00-14:00)</option>
+                        <option value="term2">26.12.2021.(15:00-15:30)</option>
+                        <option value="term3">27.12.2021. - 28.12.2021.</option>
+                        <option value="term4">28.12.2021.(12:00-12:10)</option>
+                      </select></p> -->
+                      <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                      <p ><button type="button" (click)="backFormState()">Back</button></p>
+                      <p><button type="button" (click)="nextFormState()">Next</button></p>
                   </div>
               </div>
               <div class="item elevator">
@@ -434,7 +981,7 @@
   
        <div *ngIf="isUnitSelected(units.ambulanceFloor2)" class="unit">
         <div class="row">
-            <div class="item operationRoom" onclick="itemClick(19)">
+            <div class="item operationRoom" (click)="itemClick(19)">
                 <h2 style="color:white" *ngIf="getRoomById(19)">{{getRoomById(19).name}}</h2>
                 <div class="description" *ngIf="selectedItem==19">
                  <p><b>Operating room</b></p>
@@ -443,9 +990,35 @@
                   <p>Business hours: 00:00 - 24:00</p>
                   <p><b>Equipment:</b></p> 
                   <p *ngFor='let equipment of getEquipmentsForRoom(19)'>{{equipment.name}} - {{equipment.amount}}</p>
+                  <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                  <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                    <option value="{{equipments[4].name}}">{{equipments[4].name}}</option>
+                  </select></p>
+                  <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[4].room.name}}" name="startRoom" id="startRoom"  > </p>
+                  <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[4].amount}}" name="amount" id="amount" min="1" ></p>
+                  <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                    <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                    
+                  </select></p>
+                  <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                  <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                    <option value="10min">10 minutes</option>
+                    <option value="30min">30 minutes</option>
+                    <option value="1hour">1 hour</option>
+                    <option value="1day">1day</option>
+                  </select></p>
+                 <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                    <option value="term1">25.12.2021.(13:00-14:00)</option>
+                    <option value="term2">26.12.2021.(15:00-15:30)</option>
+                    <option value="term3">27.12.2021. - 28.12.2021.</option>
+                    <option value="term4">28.12.2021.(12:00-12:10)</option>
+                  </select></p> -->
+                  <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                  <p ><button type="button" (click)="backFormState()">Back</button></p>
+                  <p><button type="button" (click)="nextFormState()">Next</button></p>
               </div>
             </div>
-            <div class="item radiology" onclick="itemClick(20)">
+            <div class="item radiology" (click)="itemClick(20)">
                 <h2 style="color:white" *ngIf="getRoomById(20)">{{getRoomById(20).name}}</h2>
                 <div class="description" *ngIf="selectedItem==20">
                   <p><b>Radiology room 1</b></p>
@@ -454,9 +1027,35 @@
                   <p>Business hours: 00:00 - 24:00</p>
                   <p><b>Equipment:</b></p> 
                   <p *ngFor='let equipment of getEquipmentsForRoom(20)'>{{equipment.name}} - {{equipment.amount}}</p>
+                  <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                  <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                    <option value="{{equipments[5].name}}">{{equipments[5].name}}</option>
+                  </select></p>
+                  <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[5].room.name}}" name="startRoom" id="startRoom"  ></p>
+                  <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[5].amount}}" name="amount" id="amount" min="1" ></p>
+                  <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                    <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                    
+                  </select></p>
+                  <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                  <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                    <option value="10min">10 minutes</option>
+                    <option value="30min">30 minutes</option>
+                    <option value="1hour">1 hour</option>
+                    <option value="1day">1day</option>
+                  </select></p>
+                 <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                    <option value="term1">25.12.2021.(13:00-14:00)</option>
+                    <option value="term2">26.12.2021.(15:00-15:30)</option>
+                    <option value="term3">27.12.2021. - 28.12.2021.</option>
+                    <option value="term4">28.12.2021.(12:00-12:10)</option>
+                  </select></p> -->
+                  <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                  <p ><button type="button" (click)="backFormState()">Back</button></p>
+                  <p><button type="button" (click)="nextFormState()">Next</button></p>
               </div>
             </div>
-            <div class="item radiology" onclick="itemClick(21)">
+            <div class="item radiology" (click)="itemClick(21)">
                 <h2 style="color:white" *ngIf="getRoomById(21)">{{getRoomById(21).name}}</h2>
                 <div class="description" *ngIf="selectedItem==21">
                   <p> <b>Radiology room 2</b></p>
@@ -465,6 +1064,32 @@
                   <p>Business hours: 00:00 - 24:00</p>
                   <p><b>Equipment:</b></p> 
                   <p *ngFor='let equipment of getEquipmentsForRoom(21)'>{{equipment.name}} - {{equipment.amount}}</p>
+                  <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                  <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                    <option value="{{equipments[6].name}}">{{equipments[6].name}}</option>
+                  </select></p>
+                  <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[6].room.name}}" name="startRoom" id="startRoom"  > </p>
+                  <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[6].amount}}" name="amount" id="amount" min="1" ></p>
+                  <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                    <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                    
+                  </select></p>
+                  <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                  <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                    <option value="10min">10 minutes</option>
+                    <option value="30min">30 minutes</option>
+                    <option value="1hour">1 hour</option>
+                    <option value="1day">1day</option>
+                  </select></p>
+                 <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                    <option value="term1">25.12.2021.(13:00-14:00)</option>
+                    <option value="term2">26.12.2021.(15:00-15:30)</option>
+                    <option value="term3">27.12.2021. - 28.12.2021.</option>
+                    <option value="term4">28.12.2021.(12:00-12:10)</option>
+                  </select></p> -->
+                  <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                  <p ><button type="button" (click)="backFormState()">Back</button></p>
+                  <p><button type="button" (click)="nextFormState()">Next</button></p>
               </div>
             </div>
         </div>
@@ -474,7 +1099,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="item hospitalRoom" onclick="itemClick(23)">
+            <div class="item hospitalRoom" (click)="itemClick(23)">
                 <h2 *ngIf="getRoomById(23)">{{getRoomById(23).name}}</h2>
                 <div class="description" *ngIf="selectedItem==23">
                   <p> <b>Hospital room 1</b></p>
@@ -483,9 +1108,35 @@
                   <p>Business hours: 00:00 - 24:00</p>
                   <p><b>Equipment:</b></p> 
                   <p *ngFor='let equipment of getEquipmentsForRoom(23)'>{{equipment.name}} - {{equipment.amount}}</p>
+                  <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                  <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                    <option value="{{equipments[8].name}}">{{equipments[8].name}}</option>
+                  </select></p>
+                  <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[8].room.name}}" name="startRoom" id="startRoom"  ></p>
+                  <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[8].amount}}" name="amount" id="amount" min="1" ></p>
+                  <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                    <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                    
+                  </select></p>
+                  <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                  <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                    <option value="10min">10 minutes</option>
+                    <option value="30min">30 minutes</option>
+                    <option value="1hour">1 hour</option>
+                    <option value="1day">1day</option>
+                  </select></p>
+                 <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                    <option value="term1">25.12.2021.(13:00-14:00)</option>
+                    <option value="term2">26.12.2021.(15:00-15:30)</option>
+                    <option value="term3">27.12.2021. - 28.12.2021.</option>
+                    <option value="term4">28.12.2021.(12:00-12:10)</option>
+                  </select></p> -->
+                  <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                  <p ><button type="button" (click)="backFormState()">Back</button></p>
+                  <p><button type="button" (click)="nextFormState()">Next</button></p>
               </div>
             </div>
-            <div class="item hospitalRoom" onclick="itemClick(24)">
+            <div class="item hospitalRoom" (click)="itemClick(24)">
                 <h2 *ngIf="getRoomById(24)">{{getRoomById(24).name}}</h2>
                 <div class="description" *ngIf="selectedItem==24">
                   <p> <b>Hospital room 2</b></p>
@@ -494,6 +1145,32 @@
                   <p>Business hours: 00:00 - 24:00</p>
                   <p><b>Equipment:</b></p> 
                   <p *ngFor='let equipment of getEquipmentsForRoom(24)'>{{equipment.name}} - {{equipment.amount}}</p>
+                  <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
+                  <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
+                    <option value="{{equipments[2].name}}">{{equipments[2].name}}</option>
+                  </select></p>
+                  <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[2].room.name}}" name="startRoom" id="startRoom"  > </p>
+                  <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[2].amount}}" name="amount" id="amount" min="1" ></p>
+                  <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
+                    <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                    
+                  </select></p>
+                  <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
+                  <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                    <option value="10min">10 minutes</option>
+                    <option value="30min">30 minutes</option>
+                    <option value="1hour">1 hour</option>
+                    <option value="1day">1day</option>
+                  </select></p>
+                 <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                    <option value="term1">25.12.2021.(13:00-14:00)</option>
+                    <option value="term2">26.12.2021.(15:00-15:30)</option>
+                    <option value="term3">27.12.2021. - 28.12.2021.</option>
+                    <option value="term4">28.12.2021.(12:00-12:10)</option>
+                  </select></p> -->
+                  <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                  <p ><button type="button" (click)="backFormState()">Back</button></p>
+                  <p><button type="button" (click)="nextFormState()">Next</button></p>
               </div>
             </div>
             <div class="item elevator">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../api.service';
+import { MoveEquipmentService } from '../move-equipment/moveEquipment.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -39,6 +40,8 @@ export class DashboardComponent implements OnInit {
   currentUnit = 1
   selectedItem = 0;
   formState = 0;
+  movedEquipments : any;
+ 
 
   constructor(private apiService: ApiService) { }
 
@@ -63,6 +66,11 @@ export class DashboardComponent implements OnInit {
     
       this.equipments = response;
     })
+
+    
+
+   
+
 
   }
 
@@ -119,6 +127,22 @@ export class DashboardComponent implements OnInit {
   }
 
   
+   postSubmitRelocationEquipment()
+   {
+     let movedEquipments = { 
+      
+
+
+
+     }
+    this.apiService.postSubmitRelocation({
+      
+    }).subscribe((response : any) => {
+       
+      this.movedEquipments = response;
+    })
+   }
+  
 
   changeUnit(unit: any) {
     this.currentUnit = unit
@@ -129,18 +153,21 @@ export class DashboardComponent implements OnInit {
   }
 
   nextFormState() {
-    return this.formState == this.formState+1;
+    return this.formState = this.formState+1;
   }
 
   backFormState()
   {
-    return this.formState == this.formState-1;
+    return this.formState = this.formState-1;
   }
 
   setFormState()
   {
     return this.formState=1;
   }
+
+ 
+ 
 
 }
 

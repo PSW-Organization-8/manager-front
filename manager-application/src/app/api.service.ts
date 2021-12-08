@@ -26,6 +26,8 @@ export class ApiService {
     return this.http.get(this.baseURL + '/api/equipment');
   }
 
+  
+
 
   getEquipment(id: any) {
     return this.http.get(this.baseURL + '/api/equipment/' + id);
@@ -33,6 +35,10 @@ export class ApiService {
 
   getSearchTerm(id: any) {
     return this.http.get(this.baseURL + '/api/search/' + id);
+  }
+
+  postSubmitRelocation(data: any) {
+    return this.http.post(this.baseURL + '/api/submitRelocation' ,data);
   }
 
 
