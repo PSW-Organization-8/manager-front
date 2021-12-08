@@ -31,7 +31,7 @@ export class BanPatientComponent implements OnInit {
 
   color(numCanceled: number): string{
     if(numCanceled > 2)
-      return 'tomato'
+      return '#EFB0A1'
     else
       return ''
 

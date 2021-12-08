@@ -14,10 +14,10 @@
                 <td>{{dto.patient.lastName}}</td>
                 <td>{{dto.numOfAppointment}}</td>
                 <td *ngIf='!dto.patient.isBanned'>
-                    <button class="w3-hover-white w3-button w3-round w3-black w3-small" (click)="banPatient(dto.patient.id)" >Ban</button>
+                    <button class="w3-hover-white w3-button w3-round w3-black w3-small pl-5 pr-5" (click)="banPatient(dto.patient.id)" >Ban</button>
                 </td>
                 <td *ngIf='dto.patient.isBanned'>
-                    <button class="w3-hover-white w3-black w3-round w3-button w3-small" (click)="unbanPatient(dto.patient.id)">Unban</button>
+                    <button class="w3-hover-white w3-black w3-round w3-button w3-small pl-5 pr-5" (click)="unbanPatient(dto.patient.id)">Unban</button>
                 </td>
             </tr>
         </tbody>
