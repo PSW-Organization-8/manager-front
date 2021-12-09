@@ -1,12 +1,12 @@
 <app-header></app-header>
 
 <div class="container spacing-up">
-    <table class="w3-table-all w3-card-4">
+    <table aria-describedby="tabela" class="w3-table-all w3-card-4">
         <thead>
-            <th>Ime</th>
-            <th>Prezime</th>
-            <th>Broj otkazanih termina</th>
-            <th>Ban/Unban</th>
+            <th id="ime">Ime</th>
+            <th id="Prezime">Prezime</th>
+            <th id="Otkazani">Broj otkazanih termina</th>
+            <th id="Ban">Ban/Unban</th>
         </thead>
         <tbody *ngFor='let dto of dtos'>
             <tr [style.background-color] = "color(dto.numOfAppointment)">
