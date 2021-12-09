@@ -12,7 +12,7 @@ export class BanPatientService {
   constructor(private http: HttpClient) { }
 
   public getDto(): Observable<any> {
-    return this.http.get<any>(this._url + 'appointment');
+    return this.http.get<any>(this._url + 'appointment/listDto');
   }
 
   public banPatient(patientId: number) {
