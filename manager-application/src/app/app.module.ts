@@ -34,6 +34,7 @@ import { CreateMedicationConsumptionReportComponent } from './create-medication-
 import { CreateMedicationSpecificationReportComponent } from './create-medication-specification-report/create-medication-specification-report.component';
 import { AllPharmaciesViewComponent } from './all-pharmacies-view/all-pharmacies-view.component';
 import { PharmacyProfileComponent } from './pharmacy-profile/pharmacy-profile.component';
+import { BanPatientComponent } from './ban-patient/ban-patient.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'equipment', component: EquipmentComponent },
   { path: 'moveEquipment', component: MoveEquipmentComponent },
   { path: 'surveyData', component: SurveyDataComponent},
+  { path: 'banPatient', component: BanPatientComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
   { path: 'createMedicineConsumptionReport', component: CreateMedicationConsumptionReportComponent},
   { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent},
@@ -75,6 +77,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     CreateMedicationSpecificationReportComponent,
     AllPharmaciesViewComponent,
     PharmacyProfileComponent,
+    BanPatientComponent,
   ],
   imports: [
     BrowserModule,
