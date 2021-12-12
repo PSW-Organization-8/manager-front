@@ -15,6 +15,7 @@ import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component
 
 
 
+
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,9 +36,11 @@ import { CreateMedicationSpecificationReportComponent } from './create-medicatio
 import { AllPharmaciesViewComponent } from './all-pharmacies-view/all-pharmacies-view.component';
 import { PharmacyProfileComponent } from './pharmacy-profile/pharmacy-profile.component';
 import { BanPatientComponent } from './ban-patient/ban-patient.component';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'notification', component: NotificationComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'feedbackview', component: AllFeedbackViewComponent },
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
@@ -78,6 +81,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     AllPharmaciesViewComponent,
     PharmacyProfileComponent,
     BanPatientComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
