@@ -45,6 +45,7 @@ export class DashboardComponent implements OnInit {
   movedEquipments : any;
 
   equipmentName: any;
+  equipmentId: any;
   startingRoom: any;
   amountEquipment: any;
   destinationRoom: any;
@@ -179,12 +180,11 @@ export class DashboardComponent implements OnInit {
   
    postSubmitRelocationEquipment()
    {
-    console.log(this.equipmentName, this.startingRoom, this.amountEquipment,
-       this.destinationRoom, this.durationRelocation)
+    console.log(this.equipmentId)
     this.apiService.postSubmitRelocation({
 
       
-      ideq: this.eqID ? parseInt(this.eqID) : -1,
+      ideq: this.equipmentId ? this.equipmentId : -1,
       idroom: parseInt(this.startRoomID),
       amount: this.amountEquipment ? parseFloat(this.amountEquipment) : -1,
       destinationRoom : this.desRoomID ? parseInt(this.desRoomID) : -1,

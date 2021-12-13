@@ -14,17 +14,18 @@ export class EquipmentComponent  {
   
 
   equipments : any;
+  equipmentsToShow : any;
   searchTerm : any;
 
   constructor(private apiService: ApiService) { }
 
 ngOnInit(): void {
 
-
+  this.searchTerm = '';
   this.apiService.getEquipments().subscribe((response : any) => {
   
     this.equipments = response;
-
+    this.equipmentsToShow = response;
     console.log(this.equipments);
   })
 
@@ -40,7 +41,22 @@ getEquipmentById(id: any) {
 } 
 
 
+search() {
+  this.equipmentsToShow = [];
+  
+  for(let item of this.equipments) {
+    
 
+    console.log(item, this.searchTerm,item.name.includes(this.searchTerm))
+
+    if(item && item.name && item.name.includes(this.searchTerm)) {
+      this.equipmentsToShow.push(item);
+    }
+
+
+  }
+
+}
 }
 
 
