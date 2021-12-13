@@ -54,7 +54,18 @@ export class DashboardComponent implements OnInit {
   startRoomID : any;
   desRoomID : any;
 
-  constructor(private apiService: ApiService) { }
+  renovateState:any;
+  renovate: any;
+  renovateType: any;
+  renovationSubmitState: any;
+
+  constructor(private apiService: ApiService) 
+  {
+    this.renovateState = 0;
+    this.renovate = false;
+    this.renovateType = 'MERGE';
+    this.renovationSubmitState = 'NORMAL'
+  }
 
   ngOnInit(): void {
 
@@ -196,6 +207,21 @@ export class DashboardComponent implements OnInit {
       this.movedEquipments = response;
     })
    }
+
+   renovationSubmit() {
+
+    if(this.renovateType == 'MERGE') {
+      this.renovationSubmitState = 'MERGED';
+    }
+    else {
+      this.renovationSubmitState = 'SPLITED';
+    }
+   }
+
+   clickRenovate() {
+     this.renovate = true;
+     this.renovateState = 1;
+   }
   
 
   changeUnit(unit: any) {
@@ -207,12 +233,24 @@ export class DashboardComponent implements OnInit {
   }
 
   nextFormState() {
-    return this.formState = this.formState+1;
+
+  if(this.renovate) {
+    this.renovateState = this.renovateState + 1;
+  }
+  else {
+    this.formState = this.formState+1;
+  }
+    
   }
 
   backFormState()
   {
-    return this.formState = this.formState-1;
+    if(this.renovate) {
+      this.renovateState = this.renovateState - 1;
+    }
+    else {
+      this.formState = this.formState-1;
+    }
   }
 
   setFormState()
