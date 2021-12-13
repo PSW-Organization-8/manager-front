@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../api.service';
 import { MoveEquipmentService } from '../move-equipment/moveEquipment.service';
+import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,7 +43,16 @@ export class DashboardComponent implements OnInit {
   selectedItem = 0;
   formState = 0;
   movedEquipments : any;
- 
+
+  equipmentName: any;
+  startingRoom: any;
+  amountEquipment: any;
+  destinationRoom: any;
+  relocationTime: any;
+  durationRelocation: any;
+  eqID : any;
+  startRoomID : any;
+  desRoomID : any;
 
   constructor(private apiService: ApiService) { }
 
@@ -67,17 +78,38 @@ export class DashboardComponent implements OnInit {
       this.equipments = response;
     })
 
+    this.apiService.getMoveEquipments().subscribe((response : any) => {
     
-
-   
-
-
+      this.movedEquipments = response;
+    })
   }
 
 
   itemClick(item:any) {
     console.log(item)
     this.selectedItem = item;
+    let eqip = this.getEquipmentsForRoom(item);
+    let moveEqip = this.getMoveEquipmentsForRoom(item);
+
+    if(eqip) {
+      this.equipmentName = eqip[0].name
+      this.startingRoom = eqip[0].room.name
+      this.amountEquipment = eqip[0].amount
+      this.eqID = eqip[0].id
+      this.startRoomID = eqip[0].room.id
+
+       }
+
+     if(moveEqip) {
+       this.destinationRoom = moveEqip[0].room.name
+       this.relocationTime = moveEqip[0].relocationTime
+       this.durationRelocation = moveEqip[0].duration
+       this.desRoomID = moveEqip[0].room.id
+     }  
+
+    
+
+
   }
 
 
@@ -117,6 +149,15 @@ export class DashboardComponent implements OnInit {
     return this.equipments.find((x : any) => x.id === id);
   } 
 
+  getMoveEquipmentById(id: any) {
+
+    if(!this.movedEquipments) {
+      return undefined;
+    }
+
+    return this.movedEquipments.find((x : any) => x.id === id);
+  } 
+
   getEquipmentsForRoom(id: any) {
     if(!this.equipments) {
       return [];
@@ -126,17 +167,30 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  getMoveEquipmentsForRoom(id: any) {
+    if(!this.movedEquipments) {
+      return [];
+    }
+    
+    return this.movedEquipments.filter((x : any) => x.room && x.room.id === id);
+
+  }
+
   
    postSubmitRelocationEquipment()
    {
-     let movedEquipments = { 
-      
-
-
-
-     }
+    console.log(this.equipmentName, this.startingRoom, this.amountEquipment,
+       this.destinationRoom, this.durationRelocation)
     this.apiService.postSubmitRelocation({
+
       
+      ideq: this.eqID ? parseInt(this.eqID) : -1,
+      idroom: parseInt(this.startRoomID),
+      amount: this.amountEquipment ? parseFloat(this.amountEquipment) : -1,
+      destinationRoom : this.desRoomID ? parseInt(this.desRoomID) : -1,
+      duration : this.durationRelocation
+     
+
     }).subscribe((response : any) => {
        
       this.movedEquipments = response;
@@ -164,6 +218,11 @@ export class DashboardComponent implements OnInit {
   setFormState()
   {
     return this.formState=1;
+  }
+
+  setNewFormState()
+  {
+    return this.formState=8;
   }
 
  

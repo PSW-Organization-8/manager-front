@@ -26,7 +26,14 @@ export class ApiService {
     return this.http.get(this.baseURL + '/api/equipment');
   }
 
+  getMoveEquipments() {
+    return this.http.get(this.baseURL + '/api/moveEquipment');
+  }
+
   
+  getRoom(id: any) {
+    return this.http.get(this.baseURL + '/api/room/' + id);
+  }
 
 
   getEquipment(id: any) {
