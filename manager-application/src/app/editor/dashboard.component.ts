@@ -4,7 +4,7 @@ import { ApiService } from '../api.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     park: 12,
     backBotton: 13,
     floorButton: 14,
-    
+
   }
 
   buildings: any;
@@ -42,22 +42,22 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
     this.apiService.getBuildings().subscribe((response : any) => {
-    
+
       this.buildings = response;
     })
 
     this.apiService.getRooms().subscribe((response : any) => {
-    
+
       this.rooms = response;
     })
 
     this.apiService.getFloors().subscribe((response : any) => {
-    
+
       this.floors = response;
     })
 
     this.apiService.getEquipments().subscribe((response : any) => {
-    
+
       this.equipments = response;
     })
 
@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit {
     }
 
     return this.buildings.find((x : any) => x.id === id);
-  } 
+  }
 
   getRoomById(id: any) {
 
@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
     }
 
     return this.rooms.find((x : any) => x.id === id);
-  } 
+  }
 
   getFloorById(id: any) {
 
@@ -88,7 +88,7 @@ export class DashboardComponent implements OnInit {
     }
 
     return this.floors.find((x : any) => x.id === id);
-  } 
+  }
 
   getEquipmentById(id: any) {
 
@@ -97,7 +97,7 @@ export class DashboardComponent implements OnInit {
     }
 
     return this.equipments.find((x : any) => x.id === id);
-  } 
+  }
 
   changeUnit(unit: any) {
     this.currentUnit = unit
