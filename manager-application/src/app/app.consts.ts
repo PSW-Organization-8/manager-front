@@ -1,4 +1,5 @@
 // Constant application variables
+import { environment } from "src/environments/environment";
 
-export const hospitalServerPort = 'http://localhost:16934/api/';
-export const integrationServerPort = 'http://localhost:7313/api/';
+export const hospitalServerPort = environment.patientsAPI;
+export const integrationServerPort = environment.integrationsAPI;
