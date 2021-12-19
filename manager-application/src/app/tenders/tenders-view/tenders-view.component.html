@@ -1,0 +1,102 @@
+<div class="columns">
+    <div class="column is-1">
+        <section class="hero is-medium">
+            <div class="hero-body ">
+                <div class="container has-text-centered">
+                    <a class="button is-primary" routerLink="/createTender">Create new tender</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="column ">
+        <section class="hero is-medium">
+            <div class="hero-body ">
+                <div class="container has-text-centered">
+                    <div class="column is-10 is-offset-2">
+                        <table class="table is-hoverable is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Naziv</th>
+                                    <th>Datum i vreme početka</th>
+                                    <th>Datum i vreme završetka</th>
+                                    <th>Vidi ponude</th>
+                                    <th>Zatvori</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <h1 *ngIf="tenders == null || tenders.length == 0">There is no tenders</h1>
+                                <tr *ngFor="let tender of tenders">
+                                    <td (click)="toggleModal(tender)"><span class="icon is-medium">
+                                        <i class="fa fa-info-circle fa-2x"></i>
+                                      </span></td>
+                                    <td>{{tender.name}}</td>
+                                    <td>{{tender.startDate | date:'dd.MM.yyyy HH:mm'}}</td>
+                                    <td *ngIf="tender.endDate != null">{{tender.endDate | date:'dd.MM.yyyy HH:mm'}}</td>
+                                    <td *ngIf="tender.endDate == null">Not defined</td>
+                                    <td><a class="button is-success" (click)="seeOffers()">See offers</a></td>
+                                    <td><a class="button is-danger" *ngIf="canClose(tender.endDate)" (click)="closeTender(tender)">Close tender</a></td>
+                                    <div class="modal" [ngClass]="{ 'is-active' : tender.isModalActive }">
+                                        <div class="modal-background" (click)="toggleModal(tender)"></div>
+                                        <div class="modal-card">
+                                            <header class="modal-card-head">
+                                                <p class="modal-card-title">Tender details</p>
+                                                <button class="delete" aria-label="close"
+                                                    (click)="toggleModal(tender)"></button>
+                                            </header>
+                                            <section class="modal-card-body has-text-left">
+                                                <div class="field">
+                                                    <label class="label">Name</label>
+                                                    <div class="control">
+                                                        <p class="input" type="text">{{tender.name}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label class="label">Start date</label>
+                                                    <div class="control">
+                                                        <p class="input" type="text">{{tender.startDate | date:'dd.MM.yyyy HH:mm'}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label class="label">End date</label>
+                                                    <div class="control">
+                                                        <p *ngIf="tender.endDate != null" class="input" type="text">{{tender.endDate | date:'dd.MM.yyyy HH:mm'}}</p>
+                                                        <p *ngIf="tender.endDate == null" class="input" type="text">Not defined</p>
+                                                    </div>
+                                                </div>
+
+                                                <br>
+
+                                                <table class="table is-hoverable is-fullwidth">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Medication name</th>
+                                                            <th>Quantity</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let medication of tender.tenderMedications">
+                                                            <td>{{medication.medicationName}}</td>
+                                                            <td>{{medication.quantity}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </section>
+                                            <footer class="modal-card-foot">
+                                                <button class="button" (click)="toggleModal(tender)">Cancel</button>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
