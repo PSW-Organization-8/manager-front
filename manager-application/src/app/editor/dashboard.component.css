@@ -1,0 +1,281 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: center;
+}
+.container .mapOfTheHospitalComplex-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  padding: F4F4F9;
+  height: 500px;
+  background: #65d2f3;
+  border: 1px solid #efb0a1;
+}
+.container .mapOfTheHospitalComplex-container .unit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.container .mapOfTheHospitalComplex-container .unit .row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.container .mapOfTheHospitalComplex-container .unit .row .item {
+  width: calc(100% - 40px);
+  text-align: center;
+  color: black;
+  padding: 20px;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+.container .mapOfTheHospitalComplex-container .unit .row .item h2 {
+  margin: 0;
+}
+.container .mapOfTheHospitalComplex-container .unit .row .item .description {
+  display: none;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  padding: 15px;
+  background: #f4f4f9;
+  border: 1px solid #000;
+  z-index: 9999999;
+}
+.container .mapOfTheHospitalComplex-container .unit .row .item:hover .description {
+  display: block;
+}
+.container .mainHospitalBuilding {
+  border: 1px solid #000;
+  transition: 0.15s;
+  height: 180px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+}
+.container .mainHospitalBuilding:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .mainHospitalBuildingFloor1 {
+  border: 1px solid #000;
+  transition: 0.15s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: white;
+}
+.container .mainHospitalBuildingFloor1:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .ambulanceFloor1 {
+  background: #5688c7;
+  border: 1px solid #000;
+  transition: 0.15s;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/ambulance-car.jpg");
+  background-size: cover;
+}
+.container .ambulanceFloor1:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .ambulance {
+  background: #5688c7;
+  border: 1px solid #000;
+  transition: 0.15s;
+  height: 170px;
+  position: absolute;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/ambulance-car.jpg");
+  background-size: 80%;
+}
+.container .ambulance:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .parkingLot {
+  background: #54b4f0;
+  border: 1px solid #000;
+  transition: 0.15s;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/parking-invalid.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/parking-invalid.jpg");
+  background-size: contain;
+}
+.container .parkingLot:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .backBotton {
+  transition: 0.15s;
+  height: 20px;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+}
+.container .backBotton:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .floorButton {
+  transition: 0.15s;
+  height: 70px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #000;
+  background: #d87a62;
+}
+.container .floorButton:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .laboratory {
+  border: 1px solid #000;
+  transition: 0.15s;
+  height: 170px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/laboratory.jpg");
+  background-size: 80%;
+}
+.container .laboratory:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .side-container {
+  width: 40%;
+  min-height: 100vh;
+  line-height: 35px;
+  font-size: 25px;
+  text-align: center;
+  margin-left: 10%;
+}
+.container .room {
+  background: #13293d;
+  border: 1px solid #13293d;
+  transition: 0.15s;
+  height: 130px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container .waitingRoom {
+  background: #efb0a1;
+  border: 1px solid #000;
+  transition: 0.15s;
+}
+.container .floor {
+  background: #efb0a1;
+  border: 1px solid #000;
+  transition: 0.15s;
+}
+.container .floor:hover {
+  opacity: 0.85;
+  transition: 0.15s;
+}
+.container .office {
+  background-color: #5688c7;
+  border: 1px solid #000;
+  transition: 0.15s;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container .radiology {
+  background-color: #1755a7;
+  border: 1px solid #000;
+  transition: 0.15s;
+  height: 130px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container .toilet {
+  background-color: #90b9f0;
+  border: 1px solid #000;
+  transition: 0.15s;
+  width: 30px;
+  height: 120px;
+  margin: 10px 0;
+}
+.container img {
+  max-width: 100%;
+  height: auto;
+}
+.container .reception {
+  background-color: #009ddc;
+  border: 1px solid #000;
+  transition: 0.15s;
+}
+.container .elevator {
+  background-color: #6d6d6d;
+  border: 1px solid #000;
+  transition: 0.15s;
+  width: 7%;
+  height: 120px;
+}
+.container .operationRoom {
+  background-color: #13293d;
+  border: 1px solid #000;
+  transition: 0.15s;
+  width: 30%;
+  height: 120px;
+}
+.container .hospitalRoom {
+  background-color: #f4f4f9;
+  border: 1px solid #000;
+  transition: 0.15s;
+  width: 7%;
+}
+.container .park {
+  background: #3ab302;
+  border: 1px solid #000;
+  transition: 0.15s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("/assets/images/park.jpg");
+  background-size: 50%;
+}
