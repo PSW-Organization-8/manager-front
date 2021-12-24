@@ -41,6 +41,7 @@ import { BanPatientComponent } from './ban-patient/ban-patient.component';
 import { NotificationComponent } from './notification/notification.component';
 import { TendersViewComponent } from './tenders/tenders-view/tenders-view.component';
 import { CreateTenderComponent } from './tenders/create-tender/create-tender.component';
+import { ChooseTenderOrdersComponent } from './tenders/choose-tender-orders/choose-tender-orders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'pharmacyProfile', component: PharmacyProfileComponent},
   { path: 'tenders', component: TendersViewComponent},
   { path: 'createTender', component: CreateTenderComponent},
+  { path: 'chooseOrder/:id', component: ChooseTenderOrdersComponent},
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -90,6 +92,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     NotificationComponent,
     TendersViewComponent,
     CreateTenderComponent,
+    ChooseTenderOrdersComponent,
   ],
   imports: [
     BrowserModule,
