@@ -17,11 +17,11 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Naziv</th>
-                                    <th>Datum i vreme početka</th>
-                                    <th>Datum i vreme završetka</th>
-                                    <th>Vidi ponude</th>
-                                    <th>Zatvori</th>
+                                    <th>Name</th>
+                                    <th>Start date and time</th>
+                                    <th>End date and time</th>
+                                    <th>See offers</th>
+                                    <th>Close</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,7 +34,7 @@
                                     <td>{{tender.startDate | date:'dd.MM.yyyy HH:mm'}}</td>
                                     <td *ngIf="tender.endDate != null">{{tender.endDate | date:'dd.MM.yyyy HH:mm'}}</td>
                                     <td *ngIf="tender.endDate == null">Not defined</td>
-                                    <td><a class="button is-success" (click)="seeOffers()">See offers</a></td>
+                                    <td><a *ngIf="!tender.isAceptedOffer" class="button is-success" (click)="seeOffers(tender.id)">See offers</a></td>
                                     <td><a class="button is-danger" *ngIf="canClose(tender.endDate)" (click)="closeTender(tender)">Close tender</a></td>
                                     <div class="modal" [ngClass]="{ 'is-active' : tender.isModalActive }">
                                         <div class="modal-background" (click)="toggleModal(tender)"></div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TenderService } from '../tender.service';
 
@@ -10,7 +11,8 @@ import { TenderService } from '../tender.service';
 export class TendersViewComponent implements OnInit {
 
   constructor(private tenderService: TenderService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
     ) { }
 
   tenders : any
@@ -53,8 +55,8 @@ export class TendersViewComponent implements OnInit {
     return dateTime >= new Date()
   }
 
-  seeOffers(){
-
+  seeOffers(id: any){
+    this.router.navigate(["/chooseOrder/" + id])
   }
 
   closeTender(tender: any){
