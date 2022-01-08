@@ -11,6 +11,10 @@ import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-
 import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
 import { CreateObjectionComponent } from './create-objection/create-objection.component';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { RoomScheduleComponent } from './roomSchedule/roomSchedule.component';
+import { RoomSchedule1Component } from './roomSchedule1/roomSchedule1.component';
+import { RoomSchedule2Component } from './roomSchedule2/roomSchedule2.component';
+import { RoomSchedule3Component } from './roomSchedule3/roomSchedule3.component';
 import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component';
 
 
@@ -34,6 +38,10 @@ import { CreateMedicationConsumptionReportComponent } from './create-medication-
 import { CreateMedicationSpecificationReportComponent } from './create-medication-specification-report/create-medication-specification-report.component';
 import { AllPharmaciesViewComponent } from './all-pharmacies-view/all-pharmacies-view.component';
 import { PharmacyProfileComponent } from './pharmacy-profile/pharmacy-profile.component';
+import { DoctorsComponent } from './doctors/doctors.component';
+import { DoctorShiftComponent } from './doctors/doctor-shift/doctor-shift.component';
+import { DoctorVacationComponent } from './doctors/doctor-vacation/doctor-vacation.component';
+import { ShiftsComponent } from './doctors/shifts/shifts.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,6 +54,14 @@ const routes: Routes = [
   { path: 'actionsAndNews', component: ActionsAndNewsComponent},
   { path: 'equipment', component: EquipmentComponent },
   { path: 'moveEquipment', component: MoveEquipmentComponent },
+  { path: 'roomSchedule', component: RoomScheduleComponent},
+  { path: 'roomSchedule1', component: RoomSchedule1Component},
+  { path: 'roomSchedule2', component: RoomSchedule2Component},
+  { path: 'roomSchedule3', component: RoomSchedule3Component},
+  { path: 'doctors', component: DoctorsComponent},
+  { path: 'doctor-shift', component: DoctorShiftComponent},
+  { path: 'doctor-vacation', component: DoctorVacationComponent},
+  { path: 'shifts', component: ShiftsComponent},
 
   { path: 'surveyData', component: SurveyDataComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
@@ -71,6 +87,14 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ActionsAndNewsComponent,
     EquipmentComponent,
     MoveEquipmentComponent,
+    RoomScheduleComponent,
+    RoomSchedule1Component,
+    RoomSchedule2Component,
+    RoomSchedule3Component,
+    DoctorsComponent,
+    DoctorShiftComponent,
+    DoctorVacationComponent,
+    ShiftsComponent,
 
     SurveyDataComponent,
     UrgentProcurementOfMedicationComponent,

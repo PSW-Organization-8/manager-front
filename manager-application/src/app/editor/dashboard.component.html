@@ -108,10 +108,10 @@
                         </select></p>
                         
                           <p *ngIf="renovateState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                            <option value="term1">25.12.2021.(13:00-14:00)</option>
-                            <option value="term2">26.12.2021.(15:00-15:30)</option>
-                            <option value="term3">27.12.2021. - 28.12.2021.</option>
-                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                            <option value="term1">12/28/2021 13:00 </option>
+                            <option value="term2">12/28/2021 15:00</option>
+                            <option value="term3">12/28/2021 17:00</option>
+                            <option value="term4">12/28/2021 18:00</option>
                           </select>
                           
                           <p *ngIf="renovateState==8"><button (click)="renovationSubmit()" type="button">Submit renovation</button></p>
@@ -119,11 +119,11 @@
                         </div>
                        
 
-                          <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                            <option value="term1">25.12.2021.(13:00-14:00)</option>
-                            <option value="term2">26.12.2021.(15:00-15:30)</option>
-                            <option value="term3">27.12.2021. - 28.12.2021.</option>
-                            <option value="term4">28.12.2021.(12:00-12:10)</option>
+                        <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                           <option value="term1">12/27/2021 13:00 </option>
+                            <option value="term2">12/27/2021 15:00</option>
+                            <option value="term3">12/27/2021 17:00</option>
+                            <option value="term4">12/27/2021 18:00</option>
                           </select></p> 
                           <p *ngIf="formState==8"><button (click)="postSubmitRelocationEquipment()"  type="button">Submit</button></p>
                           <p><button type="button" (click)="backFormState()">Back</button></p>
@@ -158,15 +158,16 @@
                           <option value="1hour">1 hour</option>
                           <option value="1day">1day</option>
                         </select></p>
-                       <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                          <option value="term1">25.12.2021.(13:00-14:00)</option>
-                          <option value="term2">26.12.2021.(15:00-15:30)</option>
-                          <option value="term3">27.12.2021. - 28.12.2021.</option>
-                          <option value="term4">28.12.2021.(12:00-12:10)</option>
-                        </select></p> -->
+                        <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                           <option value="term1">12/28/2021 13:00 </option>
+                            <option value="term2">12/28/2021 15:00</option>
+                            <option value="term3">12/28/2021 17:00</option>
+                            <option value="term4">12/28/2021 18:00</option>
+                        </select></p> 
                         <p *ngIf="formState==7"><button type="button">Submit</button></p>
                         <p ><button type="button" (click)="backFormState()">Back</button></p>
                         <p><button type="button" (click)="nextFormState()">Next</button></p>
+                        <p><button class="button button" onclick="window.location.href='/roomSchedule1';" >Display room schedule</button></p>
                   </div>
                   </div>
                   <div *ngIf="renovationSubmitState=='SPLITED'" class="item office" (click)="itemClick(1001)">
@@ -177,7 +178,7 @@
                         <p>Doctor: Pera Peric</p>
                         <p>Business hours: 7:00 - 16:00</p>
                         <p><b>Equipment:</b></p> 
-                        <p *ngFor='let equipment of getEquipmentsForRoom(29)'>{{equipment.name}} - {{equipment.amount}}</p>
+                        <p *ngFor='let equipment of getEquipmentsForRoom(28)'>{{equipment.name}} - {{equipment.amount}}</p>
                          <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
                         <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
                           <option value="{{equipments[11].name}}">{{equipments[11].name}}</option>
@@ -195,15 +196,16 @@
                           <option value="1hour">1 hour</option>
                           <option value="1day">1day</option>
                         </select></p>
-                       <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                          <option value="term1">25.12.2021.(13:00-14:00)</option>
-                          <option value="term2">26.12.2021.(15:00-15:30)</option>
-                          <option value="term3">27.12.2021. - 28.12.2021.</option>
-                          <option value="term4">28.12.2021.(12:00-12:10)</option>
-                        </select></p> -->
+                       <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">12/28/2021 13:00 </option>
+                        <option value="term2">12/28/2021 15:00</option>
+                        <option value="term3">12/28/2021 17:00</option>
+                        <option value="term4">12/28/2021 18:00</option>
+                        </select></p> 
                         <p *ngIf="formState==7"><button type="button">Submit</button></p>
                         <p ><button type="button" (click)="backFormState()">Back</button></p>
                         <p><button type="button" (click)="nextFormState()">Next</button></p>
+                        <p><button class="button button" onclick="window.location.href='/roomSchedule';" >Display room schedule</button></p>
                   </div>
                 </div>
                 <div *ngIf="renovationSubmitState=='SPLITED'" class="item office" (click)="itemClick(1002)">
@@ -214,7 +216,7 @@
                       <p>Doctor: Pera Peric</p>
                       <p>Business hours: 7:00 - 16:00</p>
                       <p><b>Equipment:</b></p> 
-                      <p *ngFor='let equipment of getEquipmentsForRoom(29)'>{{equipment.name}} - {{equipment.amount}}</p>
+                      <p *ngFor='let equipment of getEquipmentsForRoom(28)'>{{equipment.name}} - {{equipment.amount}}</p>
                        <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
                       <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
                         <option value="{{equipments[11].name}}">{{equipments[11].name}}</option>
@@ -232,15 +234,16 @@
                         <option value="1hour">1 hour</option>
                         <option value="1day">1day</option>
                       </select></p>
-                     <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                        <option value="term1">25.12.2021.(13:00-14:00)</option>
-                        <option value="term2">26.12.2021.(15:00-15:30)</option>
-                        <option value="term3">27.12.2021. - 28.12.2021.</option>
-                        <option value="term4">28.12.2021.(12:00-12:10)</option>
-                      </select></p> -->
+                      <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                        <option value="term1">12/28/2021 13:00 </option>
+                        <option value="term2">12/28/2021 15:00</option>
+                        <option value="term3">12/28/2021 17:00</option>
+                        <option value="term4">12/28/2021 18:00</option>
+                      </select></p> 
                       <p *ngIf="formState==7"><button type="button">Submit</button></p>
                       <p ><button type="button" (click)="backFormState()">Back</button></p>
                       <p><button type="button" (click)="nextFormState()">Next</button></p>
+                      <p><button class="button button" onclick="window.location.href='/roomSchedule';" >Display room schedule</button></p>
                 </div>
               
               
@@ -257,31 +260,33 @@
                     <p><b>Equipment:</b></p> 
                     <p *ngFor='let equipment of getEquipmentsForRoom(29)'>{{equipment.name}} - {{equipment.amount}}</p>
                      <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
-                    <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
-                      <option value="{{equipments[11].name}}">{{equipments[11].name}}</option>
+                     <p><button type="button" >Renovate room</button></p>
+                    <p *ngIf="formState==1">Equipment: <select [(ngModel)]="equipmentName">
+                      <option value="{{equipments[7].name}}">{{equipments[7].name}}</option>
                     </select></p>
-                    <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[11].room.name}}" name="startRoom" id="startRoom"  > </p>
-                    <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[11].amount}}" name="amount" id="amount" min="1" ></p>
-                    <p *ngIf="formState==4">Destination room:   <select name="desRoomID" id="desRoomID">
+                    <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[8].room.name}}" [(ngModel)]="startRoomID"  id="startRoomID"  > </p>
+                    <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[7].amount}}" [(ngModel)]="amountEquipment" name="amountEquipment" id="amountEquipment" min="1" ></p>
+                    <p *ngIf="formState==4">Destination room:   <select [(ngModel)]="desRoomID" name="desRoomID" id="desRoomID">
                       <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}</option>
                       
                     </select></p>
-                    <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
-                    <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                    <p *ngIf="formState==5">Time:  <input type="datetime-local" [(ngModel)]="relocationTime" id="relocationTime" name="relocationTime"></p>
+                    <p *ngIf="formState==6">Duration:  <select [ngModel]="durationRelocation" name="durationRelocation" id="durationRelocation">
                       <option value="10min">10 minutes</option>
                       <option value="30min">30 minutes</option>
                       <option value="1hour">1 hour</option>
                       <option value="1day">1day</option>
                     </select></p>
-                   <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                      <option value="term1">25.12.2021.(13:00-14:00)</option>
-                      <option value="term2">26.12.2021.(15:00-15:30)</option>
-                      <option value="term3">27.12.2021. - 28.12.2021.</option>
-                      <option value="term4">28.12.2021.(12:00-12:10)</option>
-                    </select></p> -->
-                    <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                   <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                           <option value="term1">12/29/2021 13:00 </option>
+                            <option value="term2">12/29/2021 15:00</option>
+                            <option value="term3">12/29/2021 17:00</option>
+                            <option value="term4">12/29/2021 18:00</option>
+                    </select></p> 
+                    <p *ngIf="formState==8"><button (click)="postSubmitRelocationEquipment()" type="button">Submit</button></p>
                     <p ><button type="button" (click)="backFormState()">Back</button></p>
                     <p><button type="button" (click)="nextFormState()">Next</button></p>
+                    <p><button class="button button" onclick="window.location.href='/roomSchedule1';" >Display room schedule</button></p>
               </div>
             </div>
                   <div class="item reception" (click)="itemClick(32)">
@@ -310,13 +315,13 @@
                             <option value="1hour">1 hour</option>
                             <option value="1day">1day</option>
                           </select></p>
-                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                          <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
                             <option value="term1">25.12.2021.(13:00-14:00)</option>
                             <option value="term2">26.12.2021.(15:00-15:30)</option>
                             <option value="term3">27.12.2021. - 28.12.2021.</option>
                             <option value="term4">28.12.2021.(12:00-12:10)</option>
-                          </select></p> -->
-                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                          </select></p> 
+                          <p *ngIf="formState==8"><button type="button">Submit</button></p>
                           <p ><button type="button" (click)="backFormState()">Back</button></p>
                           <p><button type="button" (click)="nextFormState()">Next</button></p>
                       </div>
@@ -338,35 +343,100 @@
                           <p><b>Equipment:</b></p> 
                           <p *ngFor='let equipment of getEquipmentsForRoom(30)'>{{equipment.name}} - {{equipment.amount}}</p>
                           <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
-                          <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
-                            <option value="{{equipments[26].name}}">{{equipments[26].name}}</option>
+                          <p><button type="button" (click)="clickRenovate()">Renovate room</button></p>
+                          <p *ngIf="formState==1">Equipment: <select [(ngModel)]="equipmentName">
+                            <option value="{{equipments[3].name}}">{{equipments[3].name}}</option>
                           </select></p>
-                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[26].room.name}}" name="startRoom" id="startRoom"  ></p>
-                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[26].amount}}" name="amount" id="amount" min="1" ></p>
-                          <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
-                            <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                          <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[3].room.name}}" [(ngModel)]="startRoomID"  id="startRoomID"  > </p>
+                          <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[3].amount}}" [(ngModel)]="amountEquipment" name="amountEquipment" id="amountEquipment" min="1" ></p>
+                          <p *ngIf="formState==4">Destination room:   <select [(ngModel)]="desRoomID" name="desRoomID" id="desRoomID">
+                            <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}</option>
                             
                           </select></p>
-                          <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
-                          <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                          <p *ngIf="formState==5">Time:  <input type="datetime-local" [(ngModel)]="relocationTime" id="relocationTime" name="relocationTime"></p>
+                          <p *ngIf="formState==6">Duration:  <select [ngModel]="durationRelocation" name="durationRelocation" id="durationRelocation">
                             <option value="10min">10 minutes</option>
                             <option value="30min">30 minutes</option>
                             <option value="1hour">1 hour</option>
                             <option value="1day">1day</option>
                           </select></p>
-                         <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                            <option value="term1">25.12.2021.(13:00-14:00)</option>
-                            <option value="term2">26.12.2021.(15:00-15:30)</option>
-                            <option value="term3">27.12.2021. - 28.12.2021.</option>
-                            <option value="term4">28.12.2021.(12:00-12:10)</option>
-                          </select></p> -->
-                          <p *ngIf="formState==7"><button type="button">Submit</button></p>
+
+                          <div *ngIf="renovate">
+                            <p *ngIf="renovateState==1">Type: <select [(ngModel)]="renovateType">
+                              <option value="MERGE">Merge</option>
+                              <option value="SPLIT">Split</option>
+                            </select>
+                          </p>
+  
+                          <p *ngIf="renovateState==2 && renovateType=='MERGE'">
+                            room:
+                            <select >
+                              <option value="office2">Office 4</option>
+                            </select> 
+                          </p>
+                            
+                          <p *ngIf="(renovateState==3 && renovateType=='MERGE') || (renovateState==2 && renovateType=='SPLIT')">
+                            Name 1:
+                            <input type="text" >
+                          </p>
+  
+                          <p *ngIf="(renovateState==3 && renovateType=='MERGE') || (renovateState==2 && renovateType=='SPLIT')">
+                            Description 1:
+                            <input type="text" >
+                          </p>
+  
+                          <p *ngIf="(renovateState==3 && renovateType=='SPLIT')">
+                            Name 2:
+                            <input type="text" >
+                          </p>
+  
+                          <p *ngIf="(renovateState==3 && renovateType=='SPLIT')">
+                            Description 2:
+                            <input type="text" >
+                          </p>
+  
+                          <p *ngIf="renovateState==4">
+                            Equipment:
+                            <input type="text" >
+                          </p>
+                          
+                          <p *ngIf="renovateState==5">Time:  <input type="datetime-local"  id="renovationTime" name="renovationTime"></p>
+  
+                          <p *ngIf="renovateState==6">Duration:  <select name="durationRenovation" id="durationRenovation">
+                            <option value="10min">10 minutes</option>
+                            <option value="30min">30 minutes</option>
+                            <option value="1hour">1 hour</option>
+                            <option value="1day">1day</option>
+                          </select></p>
+                          
+                            <p *ngIf="renovateState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                              <option value="term1">12/28/2021 13:00 </option>
+                              <option value="term2">12/28/2021 15:00</option>
+                              <option value="term3">12/28/2021 17:00</option>
+                              <option value="term4">12/28/2021 18:00</option>
+                            </select>
+                            
+                            <p *ngIf="renovateState==8"><button (click)="renovationSubmit()" type="button">Submit renovation</button></p>
+  
+                          </div>
+
+                         <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                                 <option value="term1">12/29/2021 13:00 </option>
+                                  <option value="term2">12/29/2021 15:00</option>
+                                  <option value="term3">12/29/2021 17:00</option>
+                                  <option value="term4">12/29/2021 18:00</option>
+                          </select></p> 
+                          <p *ngIf="formState==8"><button (click)="postSubmitRelocationEquipment()" type="button">Submit</button></p>
                           <p ><button type="button" (click)="backFormState()">Back</button></p>
                           <p><button type="button" (click)="nextFormState()">Next</button></p>
+                          <p><button class="button button" onclick="window.location.href='/roomSchedule2';" >Display room schedule</button></p>
                       </div>
                       
                   </div>
-                  <div class="item office" (click)="itemClick(31)">
+
+               
+
+                  <div  class="item office" (click)="itemClick(31)">
                       <h2 style="color:white"  *ngIf="getRoomById(31)">{{getRoomById(31).name}}</h2>
                       <div class="description" *ngIf="selectedItem==31">
                         <p><b>Office 4</b></p> 
@@ -376,32 +446,34 @@
                         <p><b>Equipment:</b></p> 
                         <p *ngFor='let equipment of getEquipmentsForRoom(31)'>{{equipment.name}} - {{equipment.amount}}</p>
                         <p><button type="button" (click)="setFormState()">Move Equipment</button></p>
-                        <p *ngIf="formState==1">Equipment: <select name="equipments" id="equipments">
-                          <option value="{{equipments[9].name}}">{{equipments[9].name}}</option>
-                          <option value="{{equipments[10].name}}">{{equipments[10].name}}</option>
+                        <p><button type="button" (click)="clickRenovate()">Renovate room</button></p>
+                        <p *ngIf="formState==1">Equipment: <select [(ngModel)]="equipmentName">
+                          <option value="{{equipments[5].name}}">{{equipments[5].name}}</option>
+                          <option value="{{equipments[6].name}}">{{equipments[6].name}}</option>
                         </select></p>
-                        <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[9].room.name}}" name="startRoom" id="startRoom"  ></p>
-                        <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[9].amount}}" name="amount" id="amount" min="1" ></p>
-                        <p *ngIf="formState==4">Destination room:   <select name="destinationRoom" id="destinationRoom">
-                          <option *ngFor="let room of rooms" value="{{room.name}}">{{room.name}}</option>
+                        <p *ngIf="formState==2">Starting room: <input type="text" value="{{equipments[5].room.name}}" [(ngModel)]="startRoomID"  id="startRoomID"  > </p>
+                        <p *ngIf="formState==3">Amount: <input type="number" value="{{equipments[5].amount}}" [(ngModel)]="amountEquipment" name="amountEquipment" id="amountEquipment" min="1" ></p>
+                        <p *ngIf="formState==4">Destination room:   <select [(ngModel)]="desRoomID" name="desRoomID" id="desRoomID">
+                          <option *ngFor="let room of rooms" value="{{room.id}}">{{room.name}}</option>
                           
                         </select></p>
-                        <p *ngIf="formState==5">Time:  <input type="datetime-local" id="relocationTime" name="relocationTime"></p>
-                        <p *ngIf="formState==6">Duration:  <select name="durationRelocation" id="durationRelocation">
+                        <p *ngIf="formState==5">Time:  <input type="datetime-local" [(ngModel)]="relocationTime" id="relocationTime" name="relocationTime"></p>
+                        <p *ngIf="formState==6">Duration:  <select [ngModel]="durationRelocation" name="durationRelocation" id="durationRelocation">
                           <option value="10min">10 minutes</option>
                           <option value="30min">30 minutes</option>
                           <option value="1hour">1 hour</option>
                           <option value="1day">1day</option>
                         </select></p>
-                       <!-- <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
-                          <option value="term1">25.12.2021.(13:00-14:00)</option>
-                          <option value="term2">26.12.2021.(15:00-15:30)</option>
-                          <option value="term3">27.12.2021. - 28.12.2021.</option>
-                          <option value="term4">28.12.2021.(12:00-12:10)</option>
-                        </select></p> -->
-                        <p *ngIf="formState==7"><button type="button">Submit</button></p>
+                       <p *ngIf="formState==7">Free terms: <select name="freeTerms" id="freeTerms">
+                               <option value="term1">12/29/2021 13:00 </option>
+                                <option value="term2">12/29/2021 15:00</option>
+                                <option value="term3">12/29/2021 17:00</option>
+                                <option value="term4">12/29/2021 18:00</option>
+                        </select></p> 
+                        <p *ngIf="formState==8"><button (click)="postSubmitRelocationEquipment()" type="button">Submit</button></p>
                         <p ><button type="button" (click)="backFormState()">Back</button></p>
                         <p><button type="button" (click)="nextFormState()">Next</button></p>
+                        <p><button class="button button" onclick="window.location.href='/roomSchedule3';" >Display room schedule</button></p>
                     </div>
                   </div>
                   <div class="item elevator">

@@ -218,6 +218,16 @@ export class DashboardComponent implements OnInit {
     }
    }
 
+   renovation1Submit() {
+
+    if(this.renovateType == 'MERGE') {
+      this.renovationSubmitState = 'MERGED';
+    }
+    else {
+      this.renovationSubmitState = 'SPLITED';
+    }
+   }
+
    clickRenovate() {
      this.renovate = true;
      this.renovateState = 1;
