@@ -1,7 +1,5 @@
-<app-header></app-header>
-
 <div class="container spacing-up">
-    <table aria-describedby="tabela" class="w3-table-all w3-card-4">
+    <table id="banPatientTable" aria-describedby="tabela" class="w3-table-all w3-card-4">
         <thead>
             <th id="ime">Ime</th>
             <th id="Prezime">Prezime</th>
@@ -13,10 +11,10 @@
                 <td>{{dto.patient.name}}</td>
                 <td>{{dto.patient.lastName}}</td>
                 <td>{{dto.numOfAppointment}}</td>
-                <td *ngIf='!dto.patient.isBanned'>
-                    <button class="w3-hover-white w3-button w3-round w3-black w3-small pl-5 pr-5" (click)="banPatient(dto.patient.id)" >Ban</button>
+                <td *ngIf='!dto.patient.patientAccountStatus.isBanned'>
+                    <button class="w3-hover-white w3-button w3-round w3-black w3-small pl-5 pr-5" id="banButton" (click)="banPatient(dto.patient.id)" >Ban</button>
                 </td>
-                <td *ngIf='dto.patient.isBanned'>
+                <td *ngIf='dto.patient.patientAccountStatus.isBanned'>
                     <button class="w3-hover-white w3-black w3-round w3-button w3-small pl-5 pr-5" (click)="unbanPatient(dto.patient.id)">Unban</button>
                 </td>
             </tr>

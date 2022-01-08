@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { empty, Observable } from 'rxjs';
+import { LoginService } from '../login/login.service';
+import { ManagerService } from '../login/manager.service';
 import {AllSurveyDataService} from './survey-data.service'
 
 @Component({
@@ -14,16 +16,39 @@ export class SurveyDataComponent implements OnInit {
   categoryValues: any;
   questionData: any;
   categoryData: any;
+  manager: any;
 
-  constructor(private _allSurveyDataService: AllSurveyDataService) {}
+  constructor(private _allSurveyDataService: AllSurveyDataService, private _loginService:LoginService, private _managerService:ManagerService) {}
 
   ngOnInit(): void {   
     this.getQuestionAvgValues()
     this.getCategoryAvgValues()
   }
 
+  getLoggedUser(){
+    let token = localStorage.getItem('token');
+    if(token === null)
+      token = ""
+    this._loginService.getLoggedUserFromServer(token).subscribe(f=> {
+      this.getManager(f.username)
+    }
+    );
+  }
+
+  getManager(username:any): void{
+    this._managerService.getManagerByUsernameFromServer(username).subscribe(
+      (successData: any) => {  this.manager = successData },
+      () => {},
+      () => {}
+      );
+  }
+
   getQuestionAvgValues(): void{
-    this._allSurveyDataService.getQuestionAvgValuesFromServer().subscribe(
+    let token = localStorage.getItem('token');
+      if(token === null)
+        token = ""
+
+    this._allSurveyDataService.getQuestionAvgValuesFromServer(token).subscribe(
       successData => {  this.questionValues = successData },
       error => { },
       () => { this.getQuestionData() }
@@ -31,7 +56,11 @@ export class SurveyDataComponent implements OnInit {
   }
 
   getCategoryAvgValues(): void{
-    this._allSurveyDataService.getCategoryAvgValuesFromServer().subscribe(
+    let token = localStorage.getItem('token');
+      if(token === null)
+        token = ""
+
+    this._allSurveyDataService.getCategoryAvgValuesFromServer(token).subscribe(
       successData => {  this.categoryValues = successData },
       error => { },
       () => { this.getCategoryData() }
@@ -39,7 +68,11 @@ export class SurveyDataComponent implements OnInit {
   }
 
   getQuestionData(): void{
-    this._allSurveyDataService.getQuesitonDataFromServer().subscribe(
+    let token = localStorage.getItem('token');
+      if(token === null)
+        token = ""
+
+    this._allSurveyDataService.getQuesitonDataFromServer(token).subscribe(
       successData => {  this.questionData = successData },
       error => { },
       () => { this.chartQuestionValues() }
@@ -47,7 +80,11 @@ export class SurveyDataComponent implements OnInit {
   }
 
   getCategoryData(): void{
-    this._allSurveyDataService.getCategoryDataFromServer().subscribe(
+    let token = localStorage.getItem('token');
+      if(token === null)
+        token = ""
+
+    this._allSurveyDataService.getCategoryDataFromServer(token).subscribe(
       successData => {  this.categoryData = successData },
       error => { },
       () => { this.chartCategoryValues() }

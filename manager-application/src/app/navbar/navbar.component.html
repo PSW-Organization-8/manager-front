@@ -1,0 +1,114 @@
+<nav class="navbar is-info has-shadow" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item w3-hover-white" href="">
+        <img src="assets/logo_white.png">
+      </a>
+  
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        
+      
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link w3-hover-white">
+            Hospital building
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/dashboard">
+              Dashboard
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/equipment">
+              Equipments
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link w3-hover-white">
+              Partnership 
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/allObjections">
+                Objections view
+              </a>
+              <a class="navbar-item" href="/createObjection">
+                Create objection
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" href="/registratedPharmacies">
+                All pharmacies
+              </a>
+              <a class="navbar-item" href="/pharmacyRegistration">
+                Register pharmacy
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" href="/actionsAndNews">
+                Actions and news
+              </a>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link w3-hover-white">
+              Medication 
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="/urgentProcurementOfMedication">
+                Urgent procurement
+              </a>
+              <a class="navbar-item" href="/tenders">
+                Tendering
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" href="/createMedicineConsumptionReport">
+                Create medicine consumption report
+              </a>
+              <a class="navbar-item" href="/createMedicationSpecificationReportComponent">
+                Create medicine specification reporty
+              </a>
+            </div>
+          </div>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link w3-hover-white">
+            Feedbacks & Patients
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/surveyData">
+              Survey data
+            </a>
+            <a class="navbar-item" href="/feedbackView">
+              Feedback view
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/banPatient">
+              Ban patients
+            </a>
+          </div>
+        </div>
+
+        <a class="navbar-item w3-hover-white"  href="notification">
+          Notification
+        </a>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="logoutButton" class="navbar-item is-small is-hoverable" href="" (click) = "logout()">
+                <img src="assets/sign_out.png" width="25" height="30">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
