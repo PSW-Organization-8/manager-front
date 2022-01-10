@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  baseURL = "http://localhost:7313"
+  baseURL = "http://localhost:16934"
 
   constructor(private http: HttpClient) { }
 
@@ -43,6 +43,11 @@ export class ApiService {
   getShifts()
   {
     return this.http.get(this.baseURL + "/api/shift");
+  }
+
+  getDoctors()
+  {
+    return this.http.get(this.baseURL + "/api/doctor/allDoctors");
   }
 
 
