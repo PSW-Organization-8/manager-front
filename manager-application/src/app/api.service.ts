@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  baseURL = "http://localhost:7313"
+  baseURL = "http://localhost:16934"
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +29,6 @@ export class ApiService {
   getMoveEquipments() {
     return this.http.get(this.baseURL + '/api/moveEquipment');
   }
-
   
   getRoom(id: any) {
     return this.http.get(this.baseURL + '/api/room/' + id);
@@ -39,21 +38,21 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/shift/" + id);
   }
 
+  editShift(data : any) {
+    return this.http.put(this.baseURL + "/api/shifts/edit", data);
+  }
+
 
   getShifts()
   {
     return this.http.get(this.baseURL + "/api/shift");
   }
-
-
   getEquipment(id: any) {
     return this.http.get(this.baseURL + '/api/equipment/' + id);
   }
-
   getSearchTerm(id: any) {
     return this.http.get(this.baseURL + '/api/search/' + id);
   }
-
   postSubmitRelocation(data: any) {
     return this.http.post(this.baseURL + '/api/submitRelocation' ,data);
   }
