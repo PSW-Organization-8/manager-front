@@ -38,6 +38,10 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/shift/" + id);
   }
 
+  getDoctor(id : any) {
+    return this.http.get(this.baseURL + "/api/doctorById" + id);
+  }
+
   editShift(data : any) {
     return this.http.put(this.baseURL + "/api/shifts/edit", data);
   }

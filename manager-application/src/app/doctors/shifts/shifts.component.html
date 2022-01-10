@@ -1,5 +1,9 @@
 <p><b>Manage shifts</b></p>
 
+<img src="/assets/images/shiftss.png" alt="Shifts">
+
+<br><br>
+
 <label style="font-size:130%;" for="shifts"><b>Shifts:</b> </label>
 <select [(ngModel)]="shiftType"  name="shifts" id="shifts" (change)="selectChanged()">
   <option *ngFor="let shift of shifts" value="{{shift.shiftType}}">{{shift.shiftType}}</option>

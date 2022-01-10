@@ -34,7 +34,13 @@
 </head>
 <body>
 
+
+<img src="/assets/images/doctors.jpg" alt="Doctors">
+
 <button onclick="window.location.href='/shifts'">Manage shifts</button>
+<button onclick="window.location.href='/doctors-workload'">Doctor's workload</button>
+<button onclick="window.location.href='/doctor-shift'">Manage shift</button>
+<button onclick="window.location.href='/doctor-vacation'">Manage vacation</button>
 
 <br><br>
 
@@ -63,6 +69,7 @@
     <td>{{doctor.vacation.endTime}}</td>
     <td><button onclick="window.location.href='/doctor-shift'">Manage shift</button></td>
     <td><button onclick="window.location.href='/doctor-vacation'">Manage vacation</button></td>
+    <td><button onclick="window.location.href='/doctors-workload'">Doctor's workload</button></td>
     
   </tr>
 
