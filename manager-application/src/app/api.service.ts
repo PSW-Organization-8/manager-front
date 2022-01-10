@@ -29,7 +29,6 @@ export class ApiService {
   getMoveEquipments() {
     return this.http.get(this.baseURL + '/api/moveEquipment');
   }
-
   
   getRoom(id: any) {
     return this.http.get(this.baseURL + '/api/room/' + id);
@@ -39,11 +38,16 @@ export class ApiService {
     return this.http.get(this.baseURL + "/api/shift/" + id);
   }
 
+  editShift(data : any) {
+    return this.http.put(this.baseURL + "/api/shifts/edit", data);
+  }
+
 
   getShifts()
   {
     return this.http.get(this.baseURL + "/api/shift");
   }
+
 
   getDoctors()
   {
@@ -51,14 +55,13 @@ export class ApiService {
   }
 
 
+
   getEquipment(id: any) {
     return this.http.get(this.baseURL + '/api/equipment/' + id);
   }
-
   getSearchTerm(id: any) {
     return this.http.get(this.baseURL + '/api/search/' + id);
   }
-
   postSubmitRelocation(data: any) {
     return this.http.post(this.baseURL + '/api/submitRelocation' ,data);
   }
