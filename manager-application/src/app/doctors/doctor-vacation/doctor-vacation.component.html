@@ -1,13 +1,13 @@
 <p><b>Manage doctor's vacation</b></p>
-<br><br>
-<label style="font-size:130%;"><b> Vacation:</b> </label>
-<input type="text" id="vacationDescription" name="vacationDescription">
+<img src="/assets/images/vacation.jpg" alt="Vacation">
+<br><br><label style="font-size:130%;"><b> Vacation:</b> </label>
+<input type="text" id="vacationDescription" name="vacationDescription" *ngIf="vacationDescription != null" [(ngModel)]="vacationDescription">
 <br><br>
 <label style="font-size:130%;"><b> Vacation starts:</b> </label>
-<input type="date" id="vacationStart" name="vacationStart">
+<input type="text" id="startTime" name="startTime" *ngIf="startTime != null" [(ngModel)]="startTime">
 <br><br>
 <label style="font-size:130%;"><b> Vacation ends:</b> </label>
-<input type="date" id="vacationEnd" name="vacationEnd">
+<input type="text" id="endTime" name="endTime" *ngIf="endTime != null" [(ngModel)]="endTime">
 <br><br>
 
 <button>Change vacation</button>

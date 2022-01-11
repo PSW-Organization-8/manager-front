@@ -1,11 +1,15 @@
 <p><b>Manage doctor's shift</b></p>
 
+<img src="/assets/images/shift.jpg" alt="Vacation">
+
 <label style="font-size:130%;" for="shifts"><b>Shifts:</b> </label>
-<select name="shifts" id="shifts">
-  <option value="morning">Morning shift</option>
-  <option value="afternoon">Afternoon shift</option>
-  <option value="night">Night shift</option>
+<select [(ngModel)]="shiftId"  name="shifts" id="shifts">
+  <option *ngFor="let shift of shifts" value="{{shift.id}}">{{shift.shiftType}}</option>
 </select>
 <br><br>
 
-<button>Change shift</button>
+<div class="row">
+  <div class="button changeShift" (click)="saveDoctorShift()" >
+    <h2>Change shift</h2>
+  </div>
+</div>
