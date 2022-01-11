@@ -37,25 +37,17 @@ export class ApiService {
   getShift(id : any) {
     return this.http.get(this.baseURL + "/api/shift/" + id);
   }
-
   editShift(data : any) {
     return this.http.put(this.baseURL + "/api/shifts/edit", data);
   }
-
-
   getShifts()
   {
     return this.http.get(this.baseURL + "/api/shift");
   }
-
-
   getDoctors()
   {
     return this.http.get(this.baseURL + "/api/doctor/allDoctors");
   }
-
-
-
   getEquipment(id: any) {
     return this.http.get(this.baseURL + '/api/equipment/' + id);
   }
