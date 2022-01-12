@@ -6,6 +6,12 @@
 <select [(ngModel)]="shiftType"  name="shifts" id="shifts" (change)="selectChanged()">
   <option *ngFor="let doctor of doctors" value="{{doctor.doctorShift.shiftType}}">{{doctor.doctorShift.shiftType}}</option>
 </select>
+
+
+<label style="font-size:130%;" for="shifts"><b>New Shift:</b> </label>
+<select  name="shifts" id="shifts">
+  <option *ngFor="let shift of shifts" value="{{shift.shiftType}}">{{shift.shiftType}}</option>
+</select>
 <br><br>
 
 <div class="row">

@@ -28,6 +28,12 @@ export class DoctorShiftComponent implements OnInit {
     })
   }
 
+  load1() {
+    this.apiService.getShifts().subscribe((response : any) => {
+      this.shifts = response;
+    })
+  }
+
   selectChanged() {
 
     this.shiftName = this.shiftType;
