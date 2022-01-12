@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-shift',
@@ -8,13 +9,14 @@ import { ApiService } from 'src/app/api.service';
 })
 export class DoctorShiftComponent implements OnInit {
 
-  doctors : any;
   shifts : any;
   shiftId: any;
-  shiftType: any;
-  shiftName : any;
+  id: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) 
+  {
+    this.id = this.activatedRoute.snapshot.queryParams.id;
+  }
 
   ngOnInit(): void {
 
@@ -22,35 +24,19 @@ export class DoctorShiftComponent implements OnInit {
 
   }
 
-  load() {
-    this.apiService.getDoctors().subscribe((response : any) => {
-      this.doctors = response;
-    })
-  }
+  
 
-  load1() {
+
+  load() {
     this.apiService.getShifts().subscribe((response : any) => {
       this.shifts = response;
     })
   }
 
-  selectChanged() {
+ 
 
-    this.shiftName = this.shiftType;
-
-    for(let doctor of this.doctors) {
-      if(doctor.doctorShift.shiftType == this.shiftType) {
-     
-        this.shiftId = doctor.doctorShift.id;
-      }
-    }
-  }
-
-  saveShift() {
-    this.apiService.editShift({
-      shiftType: this.shiftType,
-      id: this.shiftId 
-    }).subscribe((response: any) => {
+  saveDoctorShift() {
+    this.apiService.editDoctorShift(this.shiftId, this.id).subscribe((response: any) => {
         this.load();
     });
   }

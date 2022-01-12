@@ -43,6 +43,7 @@ import { DoctorShiftComponent } from './doctors/doctor-shift/doctor-shift.compon
 import { DoctorVacationComponent } from './doctors/doctor-vacation/doctor-vacation.component';
 import { ShiftsComponent } from './doctors/shifts/shifts.component';
 import { DoctorsWorkloadComponent } from './doctors/doctors-worklaod/doctors-workload.component';
+import { ChartModule } from 'angular2-chartjs';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -115,7 +116,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
-    FusionChartsModule
+    FusionChartsModule,
+    ChartModule
   ],
   exports: [RouterModule],
   providers: [AllFeedbackViewService],

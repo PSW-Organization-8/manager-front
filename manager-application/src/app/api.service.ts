@@ -34,32 +34,39 @@ export class ApiService {
     return this.http.get(this.baseURL + '/api/room/' + id);
   }
 
+  
+
   getShift(id : any) {
     return this.http.get(this.baseURL + "/api/shift/" + id);
   }
+  getVacation(id : any) {
+    return this.http.get(this.baseURL + "/api/vacation/" + id);
+  }
 
   getDoctor(id : any) {
-    return this.http.get(this.baseURL + "/api/doctorById" + id);
+    return this.http.get(this.baseURL + "/api/doctor/" + id);
   }
 
   editShift(data : any) {
     return this.http.put(this.baseURL + "/api/shifts/edit", data);
   }
 
-
+  editDoctorShift(shiftID: any, doctorID: any) {
+    return this.http.put(this.baseURL + '/api/editDoctorShift/' + shiftID + '/' + doctorID, {});
+  }
   getShifts()
   {
     return this.http.get(this.baseURL + "/api/shift");
   }
 
-
+  getVacations()
+  {
+    return this.http.get(this.baseURL + "/api/vacation");
+  }
   getDoctors()
   {
     return this.http.get(this.baseURL + "/api/doctor/allDoctors");
   }
-
-
-
   getEquipment(id: any) {
     return this.http.get(this.baseURL + '/api/equipment/' + id);
   }

@@ -49,14 +49,16 @@
     <th>Number of patients:</th>
   </tr>
   <tr >
-    <td>Jovan</td>
-    <td>Puric</td>
-    <td>5</td>
-    <td>7</td>
+    <td>{{name}}</td>
+    <td>{{lastName}}</td>
+    <td>{{numberOfAppointments}}</td>
+    <td>{{numberOfPatients}}</td>
     
   </tr>
 
 </table>
+
+<chart [type]="type" [data]="data" [options]="options"></chart>
 
 
 
