@@ -19,6 +19,7 @@ import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component
 
 
 
+
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,10 +35,13 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { SurveyDataComponent } from './survey-data/survey-data.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { CreateMedicationConsumptionReportComponent } from './create-medication-consumption-report/create-medication-consumption-report.component';
 import { CreateMedicationSpecificationReportComponent } from './create-medication-specification-report/create-medication-specification-report.component';
 import { AllPharmaciesViewComponent } from './all-pharmacies-view/all-pharmacies-view.component';
 import { PharmacyProfileComponent } from './pharmacy-profile/pharmacy-profile.component';
+
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorShiftComponent } from './doctors/doctor-shift/doctor-shift.component';
 import { DoctorVacationComponent } from './doctors/doctor-vacation/doctor-vacation.component';
@@ -45,8 +49,16 @@ import { ShiftsComponent } from './doctors/shifts/shifts.component';
 import { DoctorsWorkloadComponent } from './doctors/doctors-worklaod/doctors-workload.component';
 import { ChartModule } from 'angular2-chartjs';
 
+import { BanPatientComponent } from './ban-patient/ban-patient.component';
+import { NotificationComponent } from './notification/notification.component';
+import { TendersViewComponent } from './tenders/tenders-view/tenders-view.component';
+import { CreateTenderComponent } from './tenders/create-tender/create-tender.component';
+import { ChooseTenderOrdersComponent } from './tenders/choose-tender-orders/choose-tender-orders.component';
+
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'notification', component: NotificationComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'feedbackview', component: AllFeedbackViewComponent },
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
@@ -67,11 +79,16 @@ const routes: Routes = [
   { path: 'doctors-workload', component: DoctorsWorkloadComponent},
 
   { path: 'surveyData', component: SurveyDataComponent},
+  { path: 'banPatient', component: BanPatientComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
   { path: 'createMedicineConsumptionReport', component: CreateMedicationConsumptionReportComponent},
   { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent},
   { path: 'registratedPharmacies', component: AllPharmaciesViewComponent},
-  { path: 'pharmacyProfile', component: PharmacyProfileComponent}
+
+  { path: 'pharmacyProfile', component: PharmacyProfileComponent},
+  { path: 'tenders', component: TendersViewComponent},
+  { path: 'createTender', component: CreateTenderComponent},
+  { path: 'chooseOrder/:id', component: ChooseTenderOrdersComponent},
 
 ];
 
@@ -107,6 +124,12 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     AllPharmaciesViewComponent,
     PharmacyProfileComponent,
 
+    BanPatientComponent,
+    NotificationComponent,
+    TendersViewComponent,
+    CreateTenderComponent,
+    ChooseTenderOrdersComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -117,7 +140,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
     FusionChartsModule,
-    ChartModule
+    ChartModule,
+    ReactiveFormsModule
+
   ],
   exports: [RouterModule],
   providers: [AllFeedbackViewService],

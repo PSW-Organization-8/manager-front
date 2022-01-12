@@ -22,8 +22,7 @@
                 <td>{{pharmacy.url}}</td>
                 <td>{{pharmacy.port}}</td>
                 <td *ngIf="pharmacy.state == 0"><button class="button is-info"
-                        (click)="checkAvailability($event, pharmacy.name)"
-                        [disabled]="medicationOrder.Name == '' || medicationOrder.Quantity == 0">Check
+                        (click)="checkAvailability($event, pharmacy.name)">Check
                         availability</button></td>
                 <td *ngIf="pharmacy.state == 1"><button class="button is-info is-loading">Check availability</button></td>
                 <td *ngIf="pharmacy.state == 2"><button class="button is-info" disabled>Check availability</button></td>

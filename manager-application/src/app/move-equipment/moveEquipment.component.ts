@@ -8,10 +8,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-move-equipment',
   templateUrl: './moveEquipment.component.html',
-  styleUrls: ['./MoveEquipment.component.scss']
+  styleUrls: ['./moveEquipment.component.css']
 })
 export class MoveEquipmentComponent  {
   title = 'manager-application';
+
 
   id = -1;
   equipment: any;
@@ -38,3 +39,6 @@ export class MoveEquipmentComponent  {
  }
 
 }
+
+
+

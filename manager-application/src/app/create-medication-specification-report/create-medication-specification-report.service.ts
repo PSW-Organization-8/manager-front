@@ -20,6 +20,6 @@ export class CreateMedicationSpecificationReportService {
       PharmacyName: pharmacyName,
       MedicationName: medicationName
     };
-    return this.http.post<any>(this._url + 'medicationSpecification', medicationSpecification);
+    return this.http.post(this._url + 'medicationSpecification', medicationSpecification);
    };
 }

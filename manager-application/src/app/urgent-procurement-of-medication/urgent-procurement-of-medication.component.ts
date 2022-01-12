@@ -30,12 +30,12 @@ export class UrgentProcurementOfMedicationComponent implements OnInit {
     this._urgentProcurementOfMedicationService.getAllPharmacies().subscribe(data => {
       this.pharmacies = data
       for (let pharmacy of this.pharmacies) {
-        pharmacy.state = 0
+        pharmacy.state = 2
       }
     });
   }
 
-  checkAvailability(event: any, pharmacyName: string) {
+  checkAvailability(event: Event, pharmacyName: string) {
     for (let pharmacy of this.pharmacies) {
       if (pharmacy.name == pharmacyName) {
         pharmacy.state = 1 //loading
@@ -50,10 +50,10 @@ export class UrgentProcurementOfMedicationComponent implements OnInit {
         for (let pharmacy of this.pharmacies) {
           if (pharmacy.name == pharmacyName) {
             Object.keys(data).forEach((key: any) => console.log(pharmacy.pharmacies.push(data[key])));
+            pharmacy.state = 2 //disabled
           }
-          pharmacy.state = 2 //disabled
-          this.filter()
         }
+        this.filter()
       },
       (error) => {
         this.toastr.error('There is an error')
@@ -65,7 +65,7 @@ export class UrgentProcurementOfMedicationComponent implements OnInit {
       })
   }
   valueChanged() {
-    if (this.pharmacies != undefined)
+    if (this.pharmacies != undefined && this.medicationOrder.Name != "" && this.medicationOrder.Quantity != 0)
       for (let pharmacy of this.pharmacies) {
         pharmacy.pharmacies = []
         pharmacy.state = 0

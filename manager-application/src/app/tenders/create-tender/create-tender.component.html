@@ -1,0 +1,51 @@
+<section class="hero is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-8 is-offset-2">
+                <div class="box">
+                    <form ngNativeValidate [formGroup]="tenderForm">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Name" name="name" formControlName=tenderName>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Tender complation date</label>
+                            <div class="control">
+                                <input class="input" type="date" name="complationDate" formControlName=complationDate>
+                            </div>
+                        </div>
+                        <br><br>
+
+
+                        <table class="table is-hoverable is-fullwidth" formArrayName="medications">
+                            <tr>
+                                <th colspan="2">Please, add needed medications:</th>
+                                <th width="150px"><a class="button is-primary" (click)="addMedication()">Add More</a></th>
+                            </tr>
+                            <tr *ngFor="let medication of medications().controls; let i=index" [formGroupName]="i">
+                                <td>
+                                    Medication name:
+                                    <input type="text" formControlName="medicationName" class="input">
+                                </td>
+                                <td>
+                                    Quantity:
+                                    <input type="number" formControlName="quantity" class="input" min=1>
+                                </td>
+                                <td>
+                                    <button (click)="removeMedication(i)" class="button is-danger">Remove</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <!--{{this.tenderForm.value | json}}-->
+
+
+                        <button class="button is-block is-info is-large is-fullwidth" (click)="sendTender()">Open tender</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
