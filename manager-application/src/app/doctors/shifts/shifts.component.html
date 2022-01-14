@@ -1,0 +1,27 @@
+<p><b>Manage shifts</b></p>
+
+<img src="/assets/images/shiftss.png" alt="Shifts">
+
+<br><br>
+
+<label style="font-size:130%;" for="shifts"><b>Shifts:</b> </label>
+<select [(ngModel)]="shiftType"  name="shifts" id="shifts" (change)="selectChanged()">
+  <option *ngFor="let shift of shifts" value="{{shift.shiftType}}">{{shift.shiftType}}</option>
+</select>
+<br><br>
+
+<label style="font-size:130%;"><b> Shift new name:</b> </label>
+<input type="text" id="newShiftName" name="newShiftName" *ngIf="shiftType != null" [(ngModel)]="shiftName">
+<br><br>
+<label style="font-size:130%;"><b> Shift starts:</b> </label>
+<input type="text" id="shiftStart" name="shiftStart" *ngIf="shiftType != null" [(ngModel)]="shiftStart">
+<br><br>
+<label style="font-size:130%;"><b> Shift ends:</b> </label>
+<input type="text" id="shiftEnd" name="shiftEnd" *ngIf="shiftType != null" [(ngModel)]="shiftEnd">
+<br><br>
+
+<div class="row">
+  <div class="button changeShift" (click)="saveShift()" >
+    <h2>Change shift</h2>
+  </div>
+</div>

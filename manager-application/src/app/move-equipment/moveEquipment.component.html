@@ -1,6 +1,25 @@
-<div>
+
+
+
 
 <h1 style="font-size:200%;"><b>Move Equipment</b></h1>
+
+
+  <label  style="font-size: 130%;" for="equipments"><b>Equipment:</b></label>
+  <input [(ngModel)] = "equipment.name" type="text" ><br><br>
+  <br><br>
+
+  <label style="font-size:130%;"for="startingRooms"> <b>Starting room:</b></label>
+  <input type="text" [(ngModel)] = "equipment.room.name" ><br><br>
+  <br><br>
+
+  <label style="font-size:130%;" for="amountEquipment"> <b>Amount of equipment:</b></label>
+  <input type="number" [(ngModel)] = "equipment.amount"  min="1" >
+  <br><br>
+
+  <label style="font-size:130%;" for="destinationRooms"><b>Destination room:</b> </label>
+  <select  name="destinationRooms" id="destinationRooms">
+    <option *ngFor="let room of rooms"  [value]="room.name">{{room.name}}</option>
 
   <label  style="font-size: 130%;" for="equipments"><b>Equipment:</b></label>
   <select name="equipmemts" id="equipments">
@@ -30,6 +49,7 @@
     <option value="office">Main Hospital Building-Office 2</option>
     <option value="radiology">Laboratory-Radiology room 1</option>
     <option value="operationRoom">Ambulance-Operating room 1</option>
+
   </select>
   <br><br>
 
@@ -46,6 +66,7 @@
   </select>
   <br><br>
 
+
   <label style="font-size:130%;" for="freeTerms"> <b>Free terms for relocation:</b></label>
   <select name="freeTerms" id="freeTerms">
     <option value="term1">25.12.2021.(13:00-14:00)</option>
@@ -55,6 +76,10 @@
   </select>
   <br><br>
 
+
+
   <input type="submit" value="Submit">
 
-</div>
+
+
+

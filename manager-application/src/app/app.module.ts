@@ -11,6 +11,10 @@ import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-
 import { AllObjectionsViewComponent } from './all-objections-view/all-objections-view.component';
 import { CreateObjectionComponent } from './create-objection/create-objection.component';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { RoomScheduleComponent } from './roomSchedule/roomSchedule.component';
+import { RoomSchedule1Component } from './roomSchedule1/roomSchedule1.component';
+import { RoomSchedule2Component } from './roomSchedule2/roomSchedule2.component';
+import { RoomSchedule3Component } from './roomSchedule3/roomSchedule3.component';
 import { MoveEquipmentComponent } from './move-equipment/moveEquipment.component';
 
 
@@ -37,11 +41,20 @@ import { CreateMedicationConsumptionReportComponent } from './create-medication-
 import { CreateMedicationSpecificationReportComponent } from './create-medication-specification-report/create-medication-specification-report.component';
 import { AllPharmaciesViewComponent } from './all-pharmacies-view/all-pharmacies-view.component';
 import { PharmacyProfileComponent } from './pharmacy-profile/pharmacy-profile.component';
+
+import { DoctorsComponent } from './doctors/doctors.component';
+import { DoctorShiftComponent } from './doctors/doctor-shift/doctor-shift.component';
+import { DoctorVacationComponent } from './doctors/doctor-vacation/doctor-vacation.component';
+import { ShiftsComponent } from './doctors/shifts/shifts.component';
+import { DoctorsWorkloadComponent } from './doctors/doctors-worklaod/doctors-workload.component';
+import { ChartModule } from 'angular2-chartjs';
+
 import { BanPatientComponent } from './ban-patient/ban-patient.component';
 import { NotificationComponent } from './notification/notification.component';
 import { TendersViewComponent } from './tenders/tenders-view/tenders-view.component';
 import { CreateTenderComponent } from './tenders/create-tender/create-tender.component';
 import { ChooseTenderOrdersComponent } from './tenders/choose-tender-orders/choose-tender-orders.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,16 +68,28 @@ const routes: Routes = [
   { path: 'actionsAndNews', component: ActionsAndNewsComponent},
   { path: 'equipment', component: EquipmentComponent },
   { path: 'moveEquipment', component: MoveEquipmentComponent },
+  { path: 'roomSchedule', component: RoomScheduleComponent},
+  { path: 'roomSchedule1', component: RoomSchedule1Component},
+  { path: 'roomSchedule2', component: RoomSchedule2Component},
+  { path: 'roomSchedule3', component: RoomSchedule3Component},
+  { path: 'doctors', component: DoctorsComponent},
+  { path: 'doctor-shift', component: DoctorShiftComponent},
+  { path: 'doctor-vacation', component: DoctorVacationComponent},
+  { path: 'shifts', component: ShiftsComponent},
+  { path: 'doctors-workload', component: DoctorsWorkloadComponent},
+
   { path: 'surveyData', component: SurveyDataComponent},
   { path: 'banPatient', component: BanPatientComponent},
   { path: 'urgentProcurementOfMedication', component: UrgentProcurementOfMedicationComponent},
   { path: 'createMedicineConsumptionReport', component: CreateMedicationConsumptionReportComponent},
   { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent},
   { path: 'registratedPharmacies', component: AllPharmaciesViewComponent},
+
   { path: 'pharmacyProfile', component: PharmacyProfileComponent},
   { path: 'tenders', component: TendersViewComponent},
   { path: 'createTender', component: CreateTenderComponent},
   { path: 'chooseOrder/:id', component: ChooseTenderOrdersComponent},
+
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -82,17 +107,29 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ActionsAndNewsComponent,
     EquipmentComponent,
     MoveEquipmentComponent,
+    RoomScheduleComponent,
+    RoomSchedule1Component,
+    RoomSchedule2Component,
+    RoomSchedule3Component,
+    DoctorsComponent,
+    DoctorShiftComponent,
+    DoctorVacationComponent,
+    ShiftsComponent,
+    DoctorsWorkloadComponent,
+
     SurveyDataComponent,
     UrgentProcurementOfMedicationComponent,
     CreateMedicationConsumptionReportComponent,
     CreateMedicationSpecificationReportComponent,
     AllPharmaciesViewComponent,
     PharmacyProfileComponent,
+
     BanPatientComponent,
     NotificationComponent,
     TendersViewComponent,
     CreateTenderComponent,
     ChooseTenderOrdersComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -103,7 +140,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
     FusionChartsModule,
-    ReactiveFormsModule,
+    ChartModule,
+    ReactiveFormsModule
+
   ],
   exports: [RouterModule],
   providers: [AllFeedbackViewService],
