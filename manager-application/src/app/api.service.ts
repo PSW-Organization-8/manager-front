@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { integrationServerPort } from './app.consts';
+import { hospitalServerPort } from './app.consts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  baseURL = "http://localhost:7313"
+  baseURL = hospitalServerPort;
 
   constructor(private http: HttpClient) { }
 
