@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AllPharmaciesViewService } from '../all-pharmacies-view/all-pharmacies-view.service';
 import { integrationServerPort } from '../app.consts';
@@ -14,16 +15,31 @@ import { PharmacyProfileService } from './pharmacy-profile.service';
 export class PharmacyProfileComponent implements OnInit {
 
   selectedPharmacy : any;
+  id : any;
   photoName: string = '';
   img : any;
   private _url = integrationServerPort;
 
-  constructor(private allPharmaciesService : AllPharmaciesViewService, private service : PharmacyProfileService, private http : HttpClient, private toastr : ToastrService, private _sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private service : PharmacyProfileService, private http : HttpClient, private toastr : ToastrService, private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.selectedPharmacy = this.allPharmaciesService.getSelectedPharmacy();
-    this.img = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+      this.getPharmacy();
+    })
+  }
+
+  getPharmacy() {
+    this.service.getPharmacyById(this.id).subscribe(
+      (response) => {
+        this.selectedPharmacy = response;
+        this.img = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
     +  this.selectedPharmacy.base64Image);
+      },
+      (error) => {
+        this.toastr.error('Error');
+      }
+    );
   }
 
   updatePharmacy(): void {

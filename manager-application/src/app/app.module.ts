@@ -61,7 +61,7 @@ const routes: Routes = [
   { path: 'createMedicineConsumptionReport', component: CreateMedicationConsumptionReportComponent},
   { path: 'createMedicationSpecificationReportComponent', component: CreateMedicationSpecificationReportComponent},
   { path: 'registratedPharmacies', component: AllPharmaciesViewComponent},
-  { path: 'pharmacyProfile', component: PharmacyProfileComponent},
+  { path: 'pharmacyProfile/:id', component: PharmacyProfileComponent},
   { path: 'tenders', component: TendersViewComponent},
   { path: 'createTender', component: CreateTenderComponent},
   { path: 'chooseOrder/:id', component: ChooseTenderOrdersComponent},
