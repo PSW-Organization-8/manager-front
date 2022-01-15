@@ -22,7 +22,7 @@ export class AllPharmaciesViewService {
 
   public openPharmacyProfile(pharmacy : any): void {
     this.selectedPharmacy = pharmacy;
-    this.router.navigate(['pharmacyProfile'])
+    this.router.navigate(['pharmacyProfile/' + pharmacy.id])
   }
 
   public getSelectedPharmacy(): any {

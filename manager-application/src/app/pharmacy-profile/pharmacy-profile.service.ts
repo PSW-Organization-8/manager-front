@@ -12,6 +12,10 @@ export class PharmacyProfileService {
   private _url = integrationServerPort;
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
+  public getPharmacyById(pharmacyId: any) {
+    return this.http.get(this._url + 'Pharmacy/pharmacyProfile?id=' + pharmacyId)
+  }
+
   public updatePharmacy(pharmacy: any): any {
     return this.http.put<any>(this._url + 'pharmacy/updatePharmacy', pharmacy).subscribe(
       (response) => {
