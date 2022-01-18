@@ -26,7 +26,7 @@
                             </thead>
                             <tbody>
                                 <h1 *ngIf="tenders == null || tenders.length == 0">There is no tenders</h1>
-                                <tr *ngFor="let tender of tenders">
+                                <tr *ngFor="let tender of tenders" class="tender_rows">
                                     <td (click)="toggleModal(tender)"><span class="icon is-medium">
                                         <i class="fa fa-info-circle fa-2x"></i>
                                       </span></td>
