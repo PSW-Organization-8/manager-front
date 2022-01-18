@@ -64,7 +64,7 @@ export class ChooseTenderOrdersComponent implements OnInit {
   totalPrice(offer: any){
     var totalPrice = 0
     for (const medication of offer.components) {
-      totalPrice += medication.price
+      totalPrice += medication.price * medication.quantity
     }
     return totalPrice
   }

@@ -6,6 +6,7 @@ export class Pharmacy {
         public Port: string,
         public PortNum: number,
         public ComunicateWithGrpc: boolean,
-        public ComunicateWithSftp: boolean
+        public ComunicateWithSftp: boolean,
+        public EmailAddress: string
     ) { }
 }
