@@ -31,11 +31,11 @@
                                         <i class="fa fa-info-circle fa-2x"></i>
                                       </span></td>
                                     <td>{{tender.name}}</td>
-                                    <td>{{tender.startDate | date:'dd.MM.yyyy HH:mm'}}</td>
-                                    <td *ngIf="tender.endDate != null">{{tender.endDate | date:'dd.MM.yyyy HH:mm'}}</td>
-                                    <td *ngIf="tender.endDate == null">Not defined</td>
+                                    <td>{{tender.dateRange.start | date:'dd.MM.yyyy HH:mm'}}</td>
+                                    <td *ngIf="tender.dateRange.end != null">{{tender.dateRange.end | date:'dd.MM.yyyy HH:mm'}}</td>
+                                    <td *ngIf="tender.dateRange.end == null">Not defined</td>
                                     <td><a *ngIf="!tender.isAceptedOffer" class="button is-success" (click)="seeOffers(tender.id)">See offers</a></td>
-                                    <td><a class="button is-danger" *ngIf="canClose(tender.endDate)" (click)="closeTender(tender)">Close tender</a></td>
+                                    <td><a class="button is-danger" *ngIf="canClose(tender.dateRange.end)" (click)="closeTender(tender)">Close tender</a></td>
                                     <div class="modal" [ngClass]="{ 'is-active' : tender.isModalActive }">
                                         <div class="modal-background" (click)="toggleModal(tender)"></div>
                                         <div class="modal-card">
@@ -55,15 +55,15 @@
                                                 <div class="field">
                                                     <label class="label">Start date</label>
                                                     <div class="control">
-                                                        <p class="input" type="text">{{tender.startDate | date:'dd.MM.yyyy HH:mm'}}</p>
+                                                        <p class="input" type="text">{{tender.dateRange.start | date:'dd.MM.yyyy HH:mm'}}</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="field">
                                                     <label class="label">End date</label>
                                                     <div class="control">
-                                                        <p *ngIf="tender.endDate != null" class="input" type="text">{{tender.endDate | date:'dd.MM.yyyy HH:mm'}}</p>
-                                                        <p *ngIf="tender.endDate == null" class="input" type="text">Not defined</p>
+                                                        <p *ngIf="tender.dateRange.end != null" class="input" type="text">{{tender.dateRange.end | date:'dd.MM.yyyy HH:mm'}}</p>
+                                                        <p *ngIf="tender.dateRange.end == null" class="input" type="text">Not defined</p>
                                                     </div>
                                                 </div>
 
