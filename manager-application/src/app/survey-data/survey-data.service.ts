@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { hospitalServerPort } from '../app.consts';
 
@@ -11,19 +11,27 @@ export class AllSurveyDataService {
   private _url = hospitalServerPort;
   constructor(private http: HttpClient) { }
 
-  public getQuestionAvgValuesFromServer(): Observable<any> {
-    return this.http.get<any>(this._url + 'question/byQuestion');
+  public getQuestionAvgValuesFromServer(token: any): Observable<any> {
+    let result = token.slice(1,-1);
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
+    return this.http.get<any>(this._url + 'question/byQuestion', {headers:header});
   }
 
-  public getCategoryAvgValuesFromServer(): Observable<any> {
-    return this.http.get<any>(this._url + 'question/byCategory');
+  public getCategoryAvgValuesFromServer(token: any): Observable<any> {
+    let result = token.slice(1,-1);
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
+    return this.http.get<any>(this._url + 'question/byCategory', {headers:header});
   }
 
-  public getQuesitonDataFromServer(): Observable<any> {
-    return this.http.get<any>(this._url + 'question/questionData');
+  public getQuesitonDataFromServer(token: any): Observable<any> {
+    let result = token.slice(1,-1);
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
+    return this.http.get<any>(this._url + 'question/questionData', {headers:header});
   }
 
-  public getCategoryDataFromServer(): Observable<any> {
-    return this.http.get<any>(this._url + 'question/categoryData');
+  public getCategoryDataFromServer(token: any): Observable<any> {
+    let result = token.slice(1,-1);
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
+    return this.http.get<any>(this._url + 'question/categoryData', {headers:header});
   }
 }

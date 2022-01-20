@@ -1,6 +1,6 @@
 
 <div>
-    <table class="w3-table-all w3-card-4">
+    <table id="feedbacksTable" class="w3-table-all w3-card-4">
         <thead>
             <th>Id Pacijenta</th>
             <th>Tekst</th>
@@ -9,15 +9,15 @@
         <tbody *ngFor='let feedback of feedbacks'>
             <tr>
                 <td>{{feedback.patientId}}</td>
-                <td>{{feedback.content}}</td>
+                <td id="feedbackContent">{{feedback.content}}</td>
                 <td>{{feedback.date.slice(0,10)}}</td>
-                <td *ngIf='!feedback.isPublishable' class="w3-small">
+                <td *ngIf='!feedback.feedbackProperties.isPublishable' class="w3-small">
                     Not publishable
                 </td>
-                <td *ngIf='!feedback.isApproved && feedback.isPublishable'>
-                    <button class="w3-hover-white w3-button w3-round w3-black w3-small" (click)="aprroveFeedback(feedback.id)" >Approve</button>
+                <td *ngIf='!feedback.feedbackProperties.isApproved && feedback.feedbackProperties.isPublishable'>
+                    <button id="approveButton" class="w3-hover-white w3-button w3-round w3-black w3-small" (click)="aprroveFeedback(feedback.id)" >Approve</button>
                 </td>
-                <td *ngIf='feedback.isApproved'>
+                <td *ngIf='feedback.feedbackProperties.isApproved'>
                     <button class="w3-hover-white w3-black w3-round w3-button w3-small" (click)="removeFeedback(feedback.id)">Remove</button>
                 </td>
             </tr>

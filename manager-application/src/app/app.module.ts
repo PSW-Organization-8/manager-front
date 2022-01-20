@@ -42,12 +42,14 @@ import { NotificationComponent } from './notification/notification.component';
 import { TendersViewComponent } from './tenders/tenders-view/tenders-view.component';
 import { CreateTenderComponent } from './tenders/create-tender/create-tender.component';
 import { ChooseTenderOrdersComponent } from './tenders/choose-tender-orders/choose-tender-orders.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'notification', component: NotificationComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'feedbackview', component: AllFeedbackViewComponent },
+  { path: 'feedbackView', component: AllFeedbackViewComponent },
   { path: 'pharmacyRegistration', component: PharmacyRegistrationComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'allObjections', component: AllObjectionsViewComponent},
@@ -65,6 +67,7 @@ const routes: Routes = [
   { path: 'tenders', component: TendersViewComponent},
   { path: 'createTender', component: CreateTenderComponent},
   { path: 'chooseOrder/:id', component: ChooseTenderOrdersComponent},
+  { path: 'login', component: LoginComponent},
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -93,6 +96,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     TendersViewComponent,
     CreateTenderComponent,
     ChooseTenderOrdersComponent,
+    NavbarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

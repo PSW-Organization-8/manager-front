@@ -1,0 +1,25 @@
+<div class="columns is-mobile is-centered mt-5 mb-5">
+    <div class="column is-one-third is-hcentered">
+    
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input id="usernameField" class="input" [(ngModel)]="username" type="text">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input id="passwordField" class="input" [(ngModel)]="password" type="password">
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+              <button id="loginButton" (click)="login()" class="button is-link">Log in</button>
+            </div>
+          </div>
+
+    </div>
+</div>
