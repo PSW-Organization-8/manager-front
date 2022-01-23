@@ -1,16 +1,15 @@
 <section class="hero is-medium">
-    <div class="container has-text-centered">
-        <a class="button is-link" routerLink='/'>Home page</a>
-    </div>
     <div class="hero-body">
         <div class="container has-text-centered">
-
                 <h3 class="title has-text-grey">All registrated pharmacies:</h3>
                 <ul class="lista">
                     <li class="element1" *ngFor="let pharmacy of pharmacies">
                         <nav class="level" > <!-- style="height: 50pt;" -->
                             <!-- Left side -->
                             <div class="level-left">
+                              <div class="level-item has-text-centered">
+                                <img height="130" width="130" src="{{pharmacy.base64Image}}" alt="There is not image"/>
+                              </div>
 
                               <div class="level-item has-text-centered">
                                 <p><strong>Ime:</strong>   {{pharmacy.name}}</p>

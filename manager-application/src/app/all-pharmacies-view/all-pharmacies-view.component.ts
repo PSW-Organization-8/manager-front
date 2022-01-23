@@ -17,7 +17,13 @@ export class AllPharmaciesViewComponent implements OnInit {
   }
 
   getAllRegistratedPharmacies(): void{
-    this.service.getAllRegistratedPharmacies().subscribe(response => { this.pharmacies = response})
+    this.service.getAllRegistratedPharmacies().subscribe(
+      response => {
+        this.pharmacies = response
+        for (let pharmacy of this.pharmacies) {
+          pharmacy.base64Image = 'data:image/jpg;base64,' + pharmacy.base64Image;
+        }
+      })
   }
 
   openPharmacyProfile(pharmacy : any): void {
