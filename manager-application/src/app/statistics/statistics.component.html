@@ -1,0 +1,23 @@
+<div class="columns m-5">
+    <div class="column">
+        <fusioncharts
+            width="600"
+            height="350"
+            type="doughnut3d"
+            dataFormat = "json"
+            [dataSource]="dataSourceSpecialization"
+        >
+        </fusioncharts>
+    </div>
+
+    <div class="column">
+        <fusioncharts
+            width="600"
+            height="350"
+            type="Column3D"
+            dataFormat="JSON"
+            [dataSource]="dataSourceTime"
+            
+        ></fusioncharts>
+    </div>
+</div>
