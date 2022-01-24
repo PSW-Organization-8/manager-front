@@ -27,13 +27,16 @@ export class UrgentProcurementOfMedicationComponent implements OnInit {
   }
 
   getAllPharmacies() {
-    this._urgentProcurementOfMedicationService.getAllPharmacies().subscribe(data => {
+    this._urgentProcurementOfMedicationService.getAllPharmacies().subscribe((data) => {
       this.pharmacies = data
       for (let pharmacy of this.pharmacies) {
         pharmacy.state = 2
       }
+    },(error)=>{
+      this.toastr.error("Error! Service unavailable")
     });
   }
+ 
 
   checkAvailability(event: Event, pharmacyName: string) {
     for (let pharmacy of this.pharmacies) {
@@ -56,7 +59,7 @@ export class UrgentProcurementOfMedicationComponent implements OnInit {
         this.filter()
       },
       (error) => {
-        this.toastr.error('There is an error')
+        this.toastr.error('Error! Pharmacy unavailable!')
         for (let pharmacy of this.pharmacies) {
           if (pharmacy.name == pharmacyName) {
             pharmacy.state = 2 //disabled
@@ -103,7 +106,7 @@ export class UrgentProcurementOfMedicationComponent implements OnInit {
         this.resetModels()
       },
       (error) => {
-        this.toastr.error('There is an error')
+        this.toastr.error(error.error)
       })
   }
   resetModels() {

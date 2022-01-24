@@ -9,6 +9,7 @@ import { AllPharmaciesViewService } from './all-pharmacies-view.service';
 export class AllPharmaciesViewComponent implements OnInit {
 
   pharmacies: any;
+  toastr: any;
 
   constructor(private service : AllPharmaciesViewService) { }
 
@@ -23,7 +24,7 @@ export class AllPharmaciesViewComponent implements OnInit {
         for (let pharmacy of this.pharmacies) {
           pharmacy.base64Image = 'data:image/jpg;base64,' + pharmacy.base64Image;
         }
-      })
+      }, (error)=>{this.toastr.error("Service unavailable")})
   }
 
   openPharmacyProfile(pharmacy : any): void {

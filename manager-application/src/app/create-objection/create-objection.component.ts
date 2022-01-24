@@ -27,14 +27,14 @@ export class CreateObjectionComponent implements OnInit {
   }
 
   sendObjection(): void{
-    if(this.textObjection=="" || this.pharmacyName=="")  this.toastr.error('There is an error')
+    if(this.textObjection=="" || this.pharmacyName=="")  this.toastr.error('All fields must be filled')
     else{ 
     this.service.sendObjectionToServer(this.pharmacyName,this.textObjection).subscribe(
       (data) => {
         this.toastr.success('Successfully send objection to pharmacy')
       },
       (error) => {
-        this.toastr.error('There is an error')
+        this.toastr.error(error.error)
       })
   }
 }
