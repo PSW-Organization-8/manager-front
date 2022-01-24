@@ -1,6 +1,7 @@
-<div class="columns m-5">
-    <div class="column">
+<div class="columns p-5">
+    <div class="column ml-5">
         <fusioncharts
+            class="box"
             width="600"
             height="350"
             type="doughnut3d"
@@ -12,12 +13,95 @@
 
     <div class="column">
         <fusioncharts
+            class="box"
             width="600"
             height="350"
-            type="Column3D"
+            type="stackedcolumn2d"
+            dataFormat = "json"
+            [dataSource]="dataSourceEventClicks"
+        >
+        </fusioncharts>
+    </div>
+
+    <div class="column mr-5">
+        <fusioncharts
+            class="box"
+            width="600"
+            height="350"
+            type="stackedbar2d"
+            dataFormat = "json"
+            [dataSource]="dataSourceNextBackClicks"
+        >
+        </fusioncharts>
+    </div>
+
+    
+</div>
+
+<div class="columns p-5 w3-light-grey">
+    <div class="column ml-5">
+        <fusioncharts
+            class="box"
+            width="600"
+            height="350"
+            type="Column2D"
             dataFormat="JSON"
+            [dataSource]="dataSourceTimeWeek"
+            
+        ></fusioncharts>
+    </div>
+    <div class="column">
+        <fusioncharts
+            class="box"
+            width="600"
+            height="350"
+            type="Column2D"
+            dataFormat="JSON"
+            [dataSource]="dataSourceTimeMonth"
+            
+        ></fusioncharts>
+    </div>
+    <div class="column mr-5">
+        <fusioncharts
+            class="box"
+            width="600"
+            height="350"
+            type="Column2D"
+            dataFormat="JSON"
+            [dataSource]="dataSourceTimeYear"
+            
+        ></fusioncharts>
+    </div>
+
+</div>
+
+<div class="columns p-5">
+    <div class="column"></div>
+    <div class="column mr-5">
+        <fusioncharts
+            class="box"
+            width="600"
+            height="350"
+            type="Column2D"
+            dataFormat="json"
             [dataSource]="dataSourceTime"
             
         ></fusioncharts>
     </div>
+    <div class="column ml-5">
+        <fusioncharts
+            class="box"
+            width="600"
+            height="350"
+            type="angulargauge"
+            dataFormat="json"
+            [dataSource]="dataSourceGoodness"
+            
+        ></fusioncharts>
+    </div>
+    <div class="column"></div>
+</div>
+
+<div class="columns w3-light-grey p-5">
+
 </div>

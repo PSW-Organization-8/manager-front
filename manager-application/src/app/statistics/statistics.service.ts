@@ -22,4 +22,16 @@ export class StatisticsService {
     let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
     return this.http.get<any>(this._url + 'event/successfulByTime', {headers:header});
   }
+
+  public getEventClickStats(token: any): Observable<any> {
+    let result = token.slice(1,-1);
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
+    return this.http.get<any>(this._url + 'event/buttonClicks', {headers:header});
+  }
+
+  public getNextBackClickStats(token: any): Observable<any> {
+    let result = token.slice(1,-1);
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + result);
+    return this.http.get<any>(this._url + 'event/backNextClicks', {headers:header});
+  }
 }
