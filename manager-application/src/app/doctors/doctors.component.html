@@ -37,7 +37,7 @@
 
 <img src="/assets/images/doctors.jpg" alt="Doctors">
 
-<button onclick="window.location.href='/shifts'">Manage shifts</button>
+<button id='manage-shifts' onclick="window.location.href='/shifts'">Manage shifts</button>
 
 <br><br>
 
@@ -65,18 +65,18 @@
     <td>{{doctor.vacation.startTime}}</td>
     <td>{{doctor.vacation.endTime}}</td>
     <td>
-      <a [routerLink]="['/doctor-shift']" [queryParams]="{id: doctor.id}">
+      <a [routerLink]="['/doctor-shift']" [queryParams]="{id: doctor.id}" id= 'manage-shifts-{{doctor.id}}'>
         <button>Manage shift</button>
       </a>
     </td>
     <td>
       <a [routerLink]="['/doctor-vacation']" [queryParams]="{id: doctor.id}">
-        <button>Manage vacations</button>
+        <button id='manage-vacations-{{doctor.id}}'>Manage vacations</button>
       </a>
     </td>
     <td>
       <a [routerLink]="['/doctors-workload']" [queryParams]="{name: doctor.name, lastName: doctor.lastName}">
-        <button>Doctor's workload</button>
+        <button id='doctor-workload-{{doctor.id}}'>Doctor's workload</button>
       </a>
       </td>
     
