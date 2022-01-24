@@ -9,6 +9,7 @@ import { AllObjectionsViewService } from './all-objections-view.service';
 export class AllObjectionsViewComponent implements OnInit {
 
   objections: any;
+  toastr: any;
   
 
   constructor(private service: AllObjectionsViewService) { }
@@ -19,7 +20,8 @@ export class AllObjectionsViewComponent implements OnInit {
 
   getAllObjections(): void{
     this.service.getAllObjectionsFromServer().subscribe(objection =>{ this.objections = objection;
-    console.log(objection)});
+    console.log(objection)}, (error)=>{this.toastr.error("Service unavailable");}
+     );
   }
 
 }
