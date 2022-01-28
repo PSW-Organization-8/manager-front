@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #90b9f0;
+        }
+
+        .button {
+      border: black;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 20px 10px;
+      cursor: pointer;
+      background-color: #54b4f0;
+    }
+  </style>
+
+</head>
+<body>
+
+<h2><b>Equipment table</b></h2>
+
+<table>
+  <tr>
+    <th>Building-Room</th>
+    <th>Amount of equipment</th>
+    <th>Equipment</th>
+  </tr>
+  <tr>
+    <td>Ambulance-Office 1</td>
+    <td>5</td>
+    <td>Needles</td>
+  </tr>
+  <tr>
+    <td>Ambulance-Office 2</td>
+    <td>15</td>
+    <td>Band aids</td>
+  </tr>
+  <tr>
+    <td>Main hospital building-Office 3</td>
+    <td>20</td>
+    <td>Medical gauze</td>
+  </tr>
+  <tr>
+    <td>Laboratory-Radiology room 1</td>
+    <td>2</td>
+    <td>X-Rays</td>
+  </tr>
+  <tr>
+    <td>Ambulance-Operating room 1</td>
+    <td>3</td>
+    <td>Scalpel</td>
+  </tr>
+</table>
+
+<a class="button button" routerLink='/moveEquipment' ><b>Move Equipment</b></a>
+
+</body>
+</html>

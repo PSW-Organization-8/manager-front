@@ -1,0 +1,15 @@
+<h1>Notifications:</h1>
+<div *ngFor="let notification of notifications">
+<ul class="lista" *ngIf="notification.read == false">
+    <li class="element1">
+        <div *ngIf="notification.read == false" class="content-left-alight"  >
+            <p><b>Title: {{notification.title}}</b></p>
+            <p><b> Content Notification {{notification.contentNotification}}</b></p>
+            <p>File name: {{notification.fileName}}</p>
+        </div>
+        <div *ngIf="notification.read == false" class="button-div">
+            <button class="button is-info w3-hover-green" (click)="read(notification)">Read</button>
+        </div>   
+    </li>
+</ul>
+</div>

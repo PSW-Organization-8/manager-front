@@ -1,0 +1,70 @@
+<section class="hero is-medium">
+    <div class="hero-body">
+    <div>
+        <form>
+            <label>Medication name</label>
+            <input type="text" name="Name" [(ngModel)]="medicationOrder.Name" (change)="valueChanged()"
+                (keypress)="valueChanged()">
+            <label>Quantity</label>
+            <input type="number" min="0" name="Quantity" [(ngModel)]="medicationOrder.Quantity" (change)="valueChanged()"
+                (keypress)="valueChanged()">
+        </form>
+    </div><br>
+
+    <table class="w3-table-all w3-card-4">
+        <thead>
+            <th>Name</th>
+            <th>Url</th>
+            <th>Port</th>
+        </thead>
+        <tbody *ngFor='let pharmacy of pharmacies'>
+            <tr>
+                <td>{{pharmacy.name}}</td>
+                <td>{{pharmacy.url}}</td>
+                <td>{{pharmacy.port}}</td>
+                <td *ngIf="pharmacy.state == 0"><button class="button is-info"
+                        (click)="checkAvailability($event, pharmacy.name)">Check
+                        availability</button></td>
+                <td *ngIf="pharmacy.state == 1"><button class="button is-info is-loading">Check availability</button></td>
+                <td *ngIf="pharmacy.state == 2"><button class="button is-info" disabled>Check availability</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <div>
+        <form>
+            <label>City</label>
+            <input type="text" name="Name" [(ngModel)]="pharmacyAddress.City">
+            <label>Address</label>
+            <input type="text" name="Quantity" [(ngModel)]="pharmacyAddress.Address">
+            <button (click)="filter()">Submit</button>
+        </form>
+    </div><br>
+
+    <table class="w3-table-all w3-card-4">
+
+        <h3 *ngIf='error'>There is no medicine with the entered name and quantity</h3>
+        <table *ngFor='let primaryPharmacy of filteredPharmacies'>
+            <tr *ngIf='primaryPharmacy.pharmacies.length != 0'>{{primaryPharmacy.name}}</tr>
+            <th *ngIf='primaryPharmacy.pharmacies.length != 0'>Medicine name</th>
+            <th *ngIf='primaryPharmacy.pharmacies.length != 0'>Name</th>
+            <th *ngIf='primaryPharmacy.pharmacies.length != 0'>City</th>
+            <th *ngIf='primaryPharmacy.pharmacies.length != 0'>Address</th>
+
+            <tbody *ngFor='let pharmacy of primaryPharmacy.pharmacies'>
+                <br>
+                <tr *ngFor='let medication of pharmacy.medications'>
+                    <td>{{medication.name}}</td>
+                    <td>{{pharmacy.pharmacy.name}}</td>
+                    <td>{{pharmacy.pharmacy.city}}</td>
+                    <td>{{pharmacy.pharmacy.adress}} {{pharmacy.pharmacy.adressNumber}}</td>
+                    <td><button class="button is-success" 
+                        (click)="order($event, primaryPharmacy.name, pharmacy.pharmacy.id, medication.id, medication.name)">Order</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+</div>
+</section>

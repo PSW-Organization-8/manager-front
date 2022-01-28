@@ -1,0 +1,11 @@
+.lista{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.element1{
+    border: 2px solid #131111;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-left: 10%;
+  }

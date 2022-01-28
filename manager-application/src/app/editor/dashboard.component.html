@@ -1,0 +1,440 @@
+<div class="container">
+
+  <div class="mapOfTheHospitalComplex-container">
+
+      <div *ngIf="isUnitSelected(units.mapOfTheHospitalComplex)" class="unit">
+          <div class="row">
+              <div class="item laboratory" (click)="changeUnit(units.laboratory)">
+                  <h2 *ngIf="getBuildingById(1)">{{getBuildingById(1).name}}</h2>
+              </div>
+              <div class="item ambulanceFloor1" (click)="changeUnit(units.ambulanceFloor1)">
+                  <h2 *ngIf="getBuildingById(2)">{{getBuildingById(2).name}}</h2>
+              </div>
+          </div>
+          <div class="row">
+              <div class="item parkingLot" (click)="changeUnit(units.parkingLot)">
+                  <h2 style="color : transparent" >Parking Lot</h2>
+              </div>
+          </div>
+          <div class="row">
+            <div class="item mainHospitalBuildingFloor1" (click)="changeUnit(units.mainHospitalBuildingFloor1)">
+                <h2  *ngIf="getBuildingById(3)">{{getBuildingById(3).name}}</h2>
+                <img src="/assets/images/Logo.jpg" width="150" height="100">
+            </div>
+            <div class="item park">
+                <h2>Park</h2>
+            </div>
+        </div>
+        
+      </div>
+
+
+        <div *ngIf="isUnitSelected(units.mainHospitalBuildingFloor1)" class="unit">
+            <div class="row">
+                <div class="item office">
+                    <h2 style="color:white" *ngIf="getRoomById(28)">{{getRoomById(28).name}}</h2>
+                    <div class="description">
+                      <p><b>Office 1</b></p> 
+                      <p>Description: Office for patients examinations</p>
+                      <p>Doctor: Pera Peric</p>
+                      <p>Business hours: 7:00 - 16:00</p>
+                  </div>
+                </div>
+                <div class="item office">
+                    <h2 style="color:white"  *ngIf="getRoomById(29)">{{getRoomById(29).name}}</h2>
+                    <div class="description">
+                      <p><b>Office 2</b></p> 
+                      <p>Description: Office for patients examinations</p>
+                      <p>Doctor: Milan Milanic</p>
+                      <p>Business hours: 7:00 - 16:00</p>
+                  </div>
+                </div>
+                <div class="item reception">
+                    <h2 style="color:white"  *ngIf="getRoomById(32)">{{getRoomById(32).name}}</h2>
+                    <div class="description">
+                        <p><b>Reception room</b></p> 
+                        <p>Description: Patient reception and referral room</p>
+                        <p>Main nurse: Jovana Jovanic</p>
+                        <p>Business hours: 7:00 - 19:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item waitingRoom">
+                    <h2 style="color:white"  *ngIf="getRoomById(33)">{{getRoomById(33).name}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item office">
+                    <h2 style="color:white"  *ngIf="getRoomById(30)">{{getRoomById(30).name}}</h2>
+                    <div class="description">
+                        <p><b>Office 3</b></p> 
+                        <p>Description: Office for patients examinations</p>
+                        <p>Doctor: Jovan Jovic</p>
+                        <p>Business hours: 7:00 - 16:00</p>
+                    </div>
+                    
+                </div>
+                <div class="item office">
+                    <h2 style="color:white"  *ngIf="getRoomById(31)">{{getRoomById(31).name}}</h2>
+                    <div class="description">
+                      <p><b>Office 4</b></p> 
+                      <p>Description: Office for patients examinations</p>
+                      <p>Doctor: Milica Milic</p>
+                      <p>Business hours: 7:00 - 16:00</p>
+                  </div>
+                </div>
+                <div class="item elevator">
+                    <h2 style="color:white"  *ngIf="getRoomById(34)">{{getRoomById(34).name}}</h2>
+                </div>
+                <div class="item toilet">
+                    <h2 style="color:white"  *ngIf="getRoomById(35)">{{getRoomById(35).name}}</h2>
+                </div>
+                <div class="item toilet">
+                    <h2 style="color:white"  *ngIf="getRoomById(36)">{{getRoomById(36).name}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item backBotton" (click)="changeUnit(units.mapOfTheHospitalComplex)">
+                  <h2 style="color:white" > Homepage </h2>
+                  <img src="/assets/images/homeepage.jpg" width="50" height = "20">
+                </div>
+                <div class="item floorButton" (click)="changeUnit(units.mainHospitalBuildingFloor1)">
+                  <h2 style="color:black"  *ngIf="getFloorById(4)">{{getFloorById(4).name}} </h2>
+              </div>
+              <div class="item floorButton" (click)="changeUnit(units.mainHospitalBuildingFloor2)">
+                  <h2 style="color:white"  *ngIf="getFloorById(5)">{{getFloorById(5).name}}</h2>
+              </div>
+            </div>
+        </div>
+    
+ 
+
+     
+
+      <div *ngIf="isUnitSelected(units.mainHospitalBuildingFloor2)" class="unit">
+         <div class="row">
+            <div class="item office">
+                <h2 style="color:white"  *ngIf="getRoomById(37)">{{getRoomById(37).name}}</h2>
+                <div class="description">
+                    <p><b>Office 1</b></p> 
+                    <p>Description: Office for patients examinations</p>
+                    <p>Doctor: Nada Nadic</p>
+                    <p>Business hours: 14:00 - 19:00</p>
+                </div>
+            </div>
+            <div class="item office">
+                <h2 style="color:white"  *ngIf="getRoomById(38)">{{getRoomById(38).name}}</h2>
+                <div class="description">
+                    <p><b>Office 2</b></p> 
+                    <p>Description: Office for patients examinations</p>
+                    <p>Doctor: Maja Malic</p>
+                    <p>Business hours: 14:00 - 19:00</p>
+                </div>
+            </div>
+            <div class="item office">
+                <h2 style="color:white"  *ngIf="getRoomById(41)">{{getRoomById(41).name}}</h2>
+                <div class="description">
+                    <p><b>Office 5</b></p> 
+                    <p>Description: Office for patients examinations</p>
+                    <p>Doctor: Mario Marjanovic</p>
+                    <p>Business hours: 14:00 - 19:00</p>
+                </div>
+            </div>
+         </div>
+        <div class="row">
+            <div class="item waitingRoom">
+                <h2 style="color:white"   *ngIf="getRoomById(43)">{{getRoomById(43).name}}</h2>
+            </div>
+            <div class="item office">
+                <h2 style="color:white"  *ngIf="getRoomById(42)">{{getRoomById(42).name}}</h2>
+                <div class="description">
+                    <p><b>Office 6</b></p> 
+                    <p>Description: Office for patients examinations</p>
+                    <p>Doctor: David Ninkovic</p>
+                    <p>Business hours: 14:00 - 19:00</p>
+                </div>
+            </div>
+            <div class="item office">
+                <h2 style="color:white"  *ngIf="getRoomById(40)">{{getRoomById(40).name}}</h2>
+                <div class="description">
+                    <p><b>Office 4</b></p> 
+                    <p>Description: Office for patients examinations</p>
+                    <p>Doctor: Katarina Ivanov</p>
+                    <p>Business hours: 14:00 - 19:00</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item office">
+                <h2 style="color:white"  *ngIf="getRoomById(39)">{{getRoomById(39).name}}</h2>
+                <div class="description">
+                    <p><b>Office 3</b></p> 
+                    <p>Description: Office for patients examinations</p>
+                    <p>Doctor: Jelena Jovanovic</p>
+                    <p>Business hours: 14:00 - 19:00</p>
+                </div>
+            </div>
+            <div class="item elevator">
+                <h2 style="color:white"  *ngIf="getRoomById(44)">{{getRoomById(44).name}}</h2>
+            </div>
+            <div class="item toilet">
+                <h2 style="color:white"  *ngIf="getRoomById(45)">{{getRoomById(45).name}}</h2>
+            </div>
+            <div class="item toilet">
+                <h2 style="color:white"  *ngIf="getRoomById(46)">{{getRoomById(46).name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item backBotton" (click)="changeUnit(units.mapOfTheHospitalComplex)">
+                <h2 style="color:white" > Homepage </h2>
+                <img src="/assets/images/homeepage.jpg" width="50" height = "15">
+            </div>
+            <div class="item floorButton" (click)="changeUnit(units.mainHospitalBuildingFloor1)">
+                <h2 style="color:white" *ngIf="getFloorById(4)">{{getFloorById(4).name}} </h2>
+            </div>
+            <div class="item floorButton" (click)="changeUnit(units.mainHospitalBuildingFloor2)">
+                <h2 style="color:black" *ngIf="getFloorById(5)">{{getFloorById(5).name}} </h2>
+            </div>
+        </div>
+     </div> 
+
+
+     <div *ngIf="isUnitSelected(units.laboratory)" class="unit">
+        <div class="row">
+            <div class="item room">
+                <h2 style="color:white" *ngIf="getRoomById(1)">{{getRoomById(1).name}}</h2>
+                    <div class="description">
+                        <p><b>Laboratory 1</b></p> 
+                        <p>Description: Blood analysis</p>
+                        <p>Doctor: Luka Cubrilo</p>
+                        <p>Business hours: 7:00 - 15:00</p>
+                    </div>
+            </div>
+            <div class="item room">
+                <h2 style="color:white" *ngIf="getRoomById(2)">{{getRoomById(2).name}}</h2>
+                    <div class="description">
+                        <p><b>Laboratory 2</b></p> 
+                        <p>Description: Sugar analysis</p>
+                        <p>Doctor: Tamara Tamaric</p>
+                        <p>Business hours: 7:00 - 15:00</p>
+                    </div>
+            </div>
+            <div class="item room">
+                <h2 style="color:white" *ngIf="getRoomById(3)">{{getRoomById(3).name}}</h2>
+                    <div class="description">
+                        <p><b>Laboratory 3</b></p> 
+                        <p>Description: Blood analysis</p>
+                        <p>Doctor: Milica Kacavenda</p>
+                        <p>Business hours: 7:00 - 15:00</p>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item waitingRoom">
+                <h2 style="color:white" *ngIf="getRoomById(4)">{{getRoomById(4).name}}</h2>
+            </div>
+            <div class="item reception">
+                <h2 style="color:white" *ngIf="getRoomById(5)">{{getRoomById(5).name}}</h2>
+                <div class="description">
+                    <p><b>Reception room</b></p>
+                    <p>Description: Patient reception and referral room</p>
+                    <p>Main nurse: Masa Masic</p>
+                    <p>Business hours: 7:00 - 15:00</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item radiology">
+                <h2 style="color:white" *ngIf="getRoomById(6)">{{getRoomById(6).name}}</h2>
+                <div class="description">
+                    <p><b>Radiology room 1</b></p>
+                    <p>Description: X-Ray</p>
+                    <p>Doctor: Vladimir Jovanovic</p>
+                    <p>Business hours: 7:00 - 15:00</p>
+                </div>
+            </div>
+            <div class="item radiology">
+                <h2 style="color:white" *ngIf="getRoomById(7)">{{getRoomById(7).name}}</h2>
+                <div class="description">
+                    <p><b>Radiology room 2</b></p>
+                    <p>Description: MRI scan</p>
+                    <p>Doctor: Darko Darkovic</p>
+                    <p>Business hours: 7:00 - 15:00</p>
+                </div>
+            </div>
+            <div class="item toilet">
+                <h2 style="color:white" *ngIf="getRoomById(8)">{{getRoomById(8).name}}</h2>
+            </div>
+            <div class="item toilet">
+                <h2 style="color:white" *ngIf="getRoomById(9)">{{getRoomById(9).name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item backBotton" (click)="changeUnit(units.mapOfTheHospitalComplex)">
+                <h2 style="color:white" > Homepage </h2>
+                <img src="/assets/images/homeepage.jpg" width="50" height = "20">
+            </div>
+        </div>
+    </div>
+
+ 
+ 
+
+      <div *ngIf="isUnitSelected(units.ambulanceFloor1)" class="unit">
+        <div class="row">
+            <div class="item operationRoom">
+                <h2 style="color:white" *ngIf="getRoomById(10)">{{getRoomById(10).name}}</h2>
+                <div class="description">
+                    <p><b>Operating room 2</b></p>
+                    <p>Description: Operating room for emergency operations</p>
+                    <p>Doctor: Nikola Nikolic</p>
+                    <p>Business hours: 00:00 - 24:00</p>
+                </div>
+            </div>
+            <div class="item office">
+                <h2 style="color:white" *ngIf="getRoomById(11)">{{getRoomById(11).name}}</h2>
+                <div class="description">
+                    <p><b>Office 1</b></p>
+                    <p>Description: Room for patients examinations</p>
+                    <p>Doctor: Violeta Ninkovic</p>
+                    <p>Business hours: 00:00 - 24:00</p>
+                </div>
+            </div>
+            <div class="item office">
+                <h2 style="color:white" *ngIf="getRoomById(12)">{{getRoomById(12).name}}</h2>
+                <div class="description">
+                    <p><b>Office 2</b></p>
+                    <p>Description: Room for patients checkups </p>
+                    <p>Doctor: Jelena Marjanovic</p>
+                    <p>Business hours: 00:00 - 24:00</p>
+                </div>
+            </div>
+            <div class="item office">
+                <h2 style="color:white" *ngIf="getRoomById(13)">{{getRoomById(13).name}}</h2>
+                <div class="description">
+                    <p><b>Office 3</b></p>
+                    <p>Description: Room for patients checkups</p>
+                    <p>Doctor: Danijel Danijelic</p>
+                    <p>Business hours: 00:00 - 24:00</p>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="item waitingRoom">
+                <h2 style="color:white" *ngIf="getRoomById(14)">{{getRoomById(14).name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item operationRoom">
+                <h2 style="color:white" *ngIf="getRoomById(15)">{{getRoomById(15).name}}</h2>
+                <div class="description">
+                    <p><b>Operating room 1</b></p>
+                    <p>Description: Operating room for smaller operations</p>
+                    <p>Doctor: Una Unic</p>
+                    <p>Business hours: 00:00 - 24:00</p>
+                </div>
+            </div>
+            <div class="item elevator">
+                <h2 style="color:white" *ngIf="getRoomById(16)">{{getRoomById(16).name}}</h2>
+            </div>
+            <div class="item toilet">
+                <h2 style="color:white" *ngIf="getRoomById(17)">{{getRoomById(17).name}}</h2>
+            </div>
+            <div class="item toilet">
+                <h2 style="color:white" *ngIf="getRoomById(18)">{{getRoomById(18).name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item backBotton" (click)="changeUnit(units.mapOfTheHospitalComplex)">
+                <h2 style="color:white" > Homepage </h2>
+                <img src="/assets/images/homeepage.jpg" width="50" height = "20">
+            </div>
+            <div class="item floorButton" (click)="changeUnit(units.ambulanceFloor1)">
+                <h2 style="color:black"  *ngIf="getFloorById(2)">{{getFloorById(2).name}} </h2>
+            </div>
+            <div class="item floorButton" (click)="changeUnit(units.ambulanceFloor2)">
+                <h2 style="color:white"  *ngIf="getFloorById(3)">{{getFloorById(3).name}} </h2>
+            </div>
+        </div>
+     </div>
+
+     <div *ngIf="isUnitSelected(units.ambulanceFloor2)" class="unit">
+      <div class="row">
+          <div class="item operationRoom">
+              <h2 style="color:white" *ngIf="getRoomById(19)">{{getRoomById(19).name}}</h2>
+              <div class="description">
+               <p><b>Operating room</b></p>
+                <p>Description: Cardiac surgery</p>
+                <p>Doctor: Nemanja Nemanjic</p>
+                <p>Business hours: 00:00 - 24:00</p>
+            </div>
+          </div>
+          <div class="item radiology">
+              <h2 style="color:white" *ngIf="getRoomById(20)">{{getRoomById(20).name}}</h2>
+              <div class="description">
+                <p><b>Radiology room 1</b></p>
+                <p>Description: X-Ray</p>
+                <p>Doctor: Nenad Nenadovic</p>
+                <p>Business hours: 00:00 - 24:00</p>
+            </div>
+          </div>
+          <div class="item radiology">
+              <h2 style="color:white" *ngIf="getRoomById(21)">{{getRoomById(21).name}}</h2>
+              <div class="description">
+                <p> <b>Radiology room 2</b></p>
+                <p>Description: MRI scan</p>
+                <p>Doctor: Nada Nadic</p>
+                <p>Business hours: 00:00 - 24:00</p>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="item waitingRoom">
+              <h2 style="color:white" *ngIf="getRoomById(22)">{{getRoomById(22).name}}</h2>
+          </div>
+      </div>
+      <div class="row">
+          <div class="item hospitalRoom">
+              <h2 *ngIf="getRoomById(23)">{{getRoomById(23).name}}</h2>
+              <div class="description">
+                <p> <b>Hospital room 1</b></p>
+                <p>Description: Hospital room for patient’s care</p>
+                <p>Doctor: none</p>
+                <p>Business hours: 00:00 - 24:00</p>
+            </div>
+          </div>
+          <div class="item hospitalRoom">
+              <h2 *ngIf="getRoomById(24)">{{getRoomById(24).name}}</h2>
+              <div class="description">
+                <p> <b>Hospital room 2</b></p>
+                <p>Description: Hospital room for patient’s care</p>
+                <p>Doctor: none</p>
+                <p>Business hours: 00:00 - 24:00</p>
+            </div>
+          </div>
+          <div class="item elevator">
+              <h2 style="color:white" *ngIf="getRoomById(25)">{{getRoomById(25).name}}</h2>
+          </div>
+          <div class="item toilet">
+              <h2 style="color:white" *ngIf="getRoomById(26)">{{getRoomById(26).name}}</h2>
+          </div>
+          <div class="item toilet">
+              <h2 style="color:white" *ngIf="getRoomById(27)">{{getRoomById(27).name}}</h2>
+          </div>
+       </div>
+       <div class="row">
+        <div class="item backBotton" (click)="changeUnit(units.mapOfTheHospitalComplex)">
+            <h2 style="color:white" > Homepage </h2>
+            <img src="/assets/images/homeepage.jpg" width="50" height = "20">
+        </div>
+        <div class="item floorButton" (click)="changeUnit(units.ambulanceFloor1)">
+            <h2 style="color:white"  *ngIf="getFloorById(2)">{{getFloorById(2).name}} </h2>
+        </div>
+        <div class="item floorButton" (click)="changeUnit(units.ambulanceFloor2)">
+            <h2 style="color:black"  *ngIf="getFloorById(3)">{{getFloorById(3).name}}</h2>
+        </div>
+    </div>
+    </div>
+
+</div>
