@@ -83,10 +83,7 @@
           </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item" routerLink="/surveyData">
-              Survey data
-            </a>
-            <a class="navbar-item" routerLink="/feedbackView">
+            <a class="navbar-item" href="/feedbackView">
               Feedback view
             </a>
             <hr class="navbar-divider">
@@ -96,7 +93,26 @@
           </div>
         </div>
 
-        <a class="navbar-item w3-hover-white"  routerLink="notification">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link w3-hover-white">
+            Statistics
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/surveyData">
+              Survey data
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/statistics">
+              Standard Appointemnt Statistics
+            </a>
+            <a class="navbar-item" href="/tableStatistics">
+              Standard Appointemnt Tables
+            </a>
+          </div>
+        </div>
+
+        <a class="navbar-item w3-hover-white"  href="notification">
           Notification
         </a>
       </div>
