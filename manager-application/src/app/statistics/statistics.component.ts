@@ -175,11 +175,11 @@ export class StatisticsComponent implements OnInit {
       categories: [
         {
           category: [
-            { label: "Minors" },
-            { label: "Young Adults" },
-            { label: "Adults" },
-            { label: "Seniors" },
-            { label: "Veterans" }
+            { label: "Minors (<18)" },
+            { label: "Young Adults (18-32)" },
+            { label: "Adults (32-45)" },
+            { label: "Seniors (45-65)" },
+            { label: "Veterans (65+)" }
           ]
         }
       ],

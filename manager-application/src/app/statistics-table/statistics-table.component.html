@@ -1,0 +1,55 @@
+<div class="columns p-5 m-5">
+    <h1 class="title">Doctors scheduling stats</h1>
+</div>
+<div class="columns p-5 m-5">
+    <table aria-describedby="tabela" class="w3-table-all w3-card-4">
+        <thead>
+            <th>Doctor name</th>
+            <th>Specialization</th>
+            <th>Time selected</th>
+            <th>Number scheduled</th>
+            <th>Number of different patients</th>
+            <th>Scheduling efficency</th>
+            <th>Score</th>
+        </thead>
+        <tbody *ngFor='let stats of doctorEventStats'>
+            <tr [style.background-color] = "color(stats.scheduled + stats.uniquePatients)">
+                <td>{{stats.doctorFullName}}</td>
+                <td>{{stats.doctorSpecialization}}</td>
+                <td>{{stats.selected}}</td>
+                <td>{{stats.scheduled}}</td>
+                <td>{{stats.uniquePatients}}</td>
+                <td>{{((stats.scheduled/stats.selected)*100).toFixed(2)}}%</td>
+                <td>{{(stats.scheduled + stats.uniquePatients).toFixed(2)}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="columns p-5 m-5">
+    <h1 class="title">User activity by months</h1>
+</div>
+<div class="columns p-5 m-5">
+    <table aria-describedby="tabela" class="w3-table-all w3-card-4">
+        <thead>
+            <th>Month</th>
+            <th>Next button</th>
+            <th>Back button</th>
+            <th>Specializaiton dropdown</th>
+            <th>Datetime picker</th>
+            <th>Doctor dropdown</th>
+            <th>Schedule button</th>
+        </thead>
+        <tbody *ngFor='let stats of monthStats; let i = index'>
+            <tr>
+                <td>{{months[i]}}</td>
+                <td>{{stats.next}}</td>
+                <td>{{stats.back}}</td>
+                <td>{{stats.specializaitonSelection}}</td>
+                <td>{{stats.dateSelection}}</td>
+                <td>{{stats.doctorSelection}}</td>
+                <td>{{stats.schedule}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

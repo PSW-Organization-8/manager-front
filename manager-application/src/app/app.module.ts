@@ -45,6 +45,7 @@ import { ChooseTenderOrdersComponent } from './tenders/choose-tender-orders/choo
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { StatisticsTableComponent } from './statistics-table/statistics-table.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -69,7 +70,8 @@ const routes: Routes = [
   { path: 'createTender', component: CreateTenderComponent},
   { path: 'chooseOrder/:id', component: ChooseTenderOrdersComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'statistics', component: StatisticsComponent}
+  { path: 'statistics', component: StatisticsComponent},
+  { path: 'tableStatistics', component: StatisticsTableComponent}
 ];
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -101,6 +103,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     NavbarComponent,
     LoginComponent,
     StatisticsComponent,
+    StatisticsTableComponent,
   ],
   imports: [
     BrowserModule,

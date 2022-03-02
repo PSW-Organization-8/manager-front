@@ -35,7 +35,7 @@ export class CreateMedicationConsumptionReportComponent implements OnInit {
         this.model = new MedicationConsumptionDates(new Date, new Date)
       },
       (error) => {
-        this.toastr.error('There is an error')
+        this.toastr.error(error.error)
       }
     )
   }
